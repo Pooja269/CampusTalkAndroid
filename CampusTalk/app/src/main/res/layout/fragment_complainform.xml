@@ -3,38 +3,116 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name :"
-            style="@style/TextViewStyle"
-            android:padding="8dp" />
+            android:text="Department : "
+            android:padding="8dp"
+            android:layout_marginLeft="16dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dravya" />
-
-
-
-    </LinearLayout>
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/department"></Spinner>
+        android:entries="@array/department"
+        android:layout_marginLeft="64dp"
+        >
 
-    <EditText
+    </Spinner>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Semester : "
+            android:padding="8dp"
+            android:layout_marginLeft="16dp"/>
+
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/semester"
+            android:layout_marginLeft="90dp"
+            >
+
+        </Spinner>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginTop="-15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name :"
+            android:padding="8dp"
+            android:layout_marginLeft="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dravya"
+            android:padding="16dp"
+            android:layout_marginLeft="100dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginTop="-15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enrollment :"
+            android:padding="8dp"
+            android:layout_marginLeft="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="120280107005"
+            android:padding="16dp"
+            android:layout_marginLeft="70dp"/>
+
+    </LinearLayout>
+
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:hint="Title"
-        android:lines="5"
-        android:backgroundTint="@color/colorPrimary"/>
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:id="@+id/complain_title"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Descripton"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:id="@+id/complain_desc"
+        android:lines="4"/>
 
 
     <Button
@@ -42,6 +120,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/btn_submit"
         android:text="Submit"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"/>
 
 </LinearLayout>

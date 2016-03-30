@@ -10,11 +10,33 @@
     <string-array name="department">
 
         <item>Mechanical</item>
+        <item>Electrical</item>
+        <item>Civil</item>
+        <item>Computer</item>
+        <item>IT</item>
+        <item>EnC</item>
+        <item>InC</item>
+        <item>Environment</item>
+        <item>Textile</item>
+        <item>Plastic</item>
+        <item>Rubber</item>
+        <item>Chemical</item>
+        <item>Bio Medical</item>
+        <item>Applied Mechanics</item>
+        <item>General</item>
 
     </string-array>
 
     <string-array name="semester">
+
         <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
 
     </string-array>
 </resources>

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Created by khushali on 30/03/2016.
@@ -36,6 +37,8 @@ public class ComplainFormFragment extends Fragment {
 
     void validateAndSubmit(){
 
+       // TextView name=(TextView)view.findViewById(R.id.)
+       // if()
         Snackbar.make(view.findViewById(android.R.id.content),"Title must be added",Snackbar.LENGTH_SHORT).show();
 
     }
