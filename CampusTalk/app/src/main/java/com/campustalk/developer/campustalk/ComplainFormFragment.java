@@ -20,7 +20,7 @@ public class ComplainFormFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_complainform,container,false);
+        view = inflater.inflate(R.layout.fragment_feedbackform,container,false);
         return view;
     }
 
