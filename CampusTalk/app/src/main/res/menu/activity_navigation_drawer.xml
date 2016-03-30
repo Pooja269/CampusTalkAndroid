@@ -3,34 +3,36 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_notices"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:title="Notices" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_blogs"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:title="Blogs" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_asknlearn"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:title="Ask n Learn" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_studentProfiles"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="Student Profiles" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Forms">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_complainForm"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="Complain Forms" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_feedbackForm"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Feedback Forms" />
         </menu>
     </item>
+
+    <item android:title="Logout" android:id="@+id/nav_logout"></item>
 
 </menu>
