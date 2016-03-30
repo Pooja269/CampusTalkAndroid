@@ -11,6 +11,10 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="Blogs" />
         <item
+            android:id="@+id/nav_events"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Events" />
+        <item
             android:id="@+id/nav_asknlearn"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Ask n Learn" />

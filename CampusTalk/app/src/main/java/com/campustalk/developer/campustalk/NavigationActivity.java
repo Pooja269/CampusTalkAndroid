@@ -94,6 +94,8 @@ public class NavigationActivity extends AppCompatActivity
         } else if (id == R.id.nav_studentProfiles) {
 
         } else if (id == R.id.nav_feedbackForm) {
+            Fragment fragment=new FeedbackFormFragment();
+            fragmentManager.beginTransaction().replace(R.id.frame,fragment).commit();
 
         } else if (id == R.id.nav_complainForm) {
             Fragment fragment = new ComplainFormFragment();
