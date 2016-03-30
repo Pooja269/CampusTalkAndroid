@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by khushali on 30/03/2016.
@@ -37,9 +39,17 @@ public class ComplainFormFragment extends Fragment {
 
     void validateAndSubmit(){
 
-       // TextView name=(TextView)view.findViewById(R.id.)
-       // if()
-        Snackbar.make(view.findViewById(android.R.id.content),"Title must be added",Snackbar.LENGTH_SHORT).show();
+        EditText title=(EditText)view.findViewById(R.id.complain_title);
+        EditText desc = (EditText)view.findViewById(R.id.complain_desc);
+        if(title.getText().toString().equals(""))
+            Snackbar.make(view.findViewById(android.R.id.content),"Title must be added",Snackbar.LENGTH_SHORT).show();
+        else if(desc.getText().toString().equals(""))
+            Snackbar.make(view.findViewById(android.R.id.content),"Description must be added", Snackbar.LENGTH_SHORT).show();
+        else{
+            Toast.makeText(getActivity(),"Complain submitted successfully",Toast.LENGTH_SHORT).show();
+            title.setText("");
+            desc.setText("");
+        }
 
     }
 }
