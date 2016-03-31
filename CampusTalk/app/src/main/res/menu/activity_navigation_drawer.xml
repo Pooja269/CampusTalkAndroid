@@ -4,7 +4,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_notices"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/complain"
             android:title="Notices" />
         <item
             android:id="@+id/nav_blogs"
@@ -28,7 +28,7 @@
         <menu>
             <item
                 android:id="@+id/nav_complainForm"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/complain"
                 android:title="Complain Forms" />
             <item
                 android:id="@+id/nav_feedbackForm"

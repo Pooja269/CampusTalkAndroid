@@ -22,7 +22,7 @@ public class ComplainFormFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_feedbackform,container,false);
+        view = inflater.inflate(R.layout.fragment_complainform,container,false);
         return view;
     }
 
@@ -42,9 +42,11 @@ public class ComplainFormFragment extends Fragment {
         EditText title=(EditText)view.findViewById(R.id.complain_title);
         EditText desc = (EditText)view.findViewById(R.id.complain_desc);
         if(title.getText().toString().equals(""))
-            Snackbar.make(view.findViewById(android.R.id.content),"Title must be added",Snackbar.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),"Add Title",Toast.LENGTH_SHORT).show();
+            //Snackbar.make(view.findViewById(android.R.id.content),"Title must be added",Snackbar.LENGTH_SHORT).show();
         else if(desc.getText().toString().equals(""))
-            Snackbar.make(view.findViewById(android.R.id.content),"Description must be added", Snackbar.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Add Description", Toast.LENGTH_SHORT).show();
+            //Snackbar.make(view.findViewById(android.R.id.content),"Description must be added", Snackbar.LENGTH_SHORT).show();
         else{
             Toast.makeText(getActivity(),"Complain submitted successfully",Toast.LENGTH_SHORT).show();
             title.setText("");
