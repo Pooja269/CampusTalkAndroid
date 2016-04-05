@@ -43,20 +43,23 @@ public class FeedbackFormFragment extends Fragment {
         EditText title=(EditText)view.findViewById(R.id.courseTitle);
         if(div.getText().toString().equals(""))
         {
-            Snackbar.make(view.findViewById(android.R.id.content),"Divison must be added",Snackbar.LENGTH_SHORT).show();
-            //Toast.makeText(getActivity(),"submit",Toast.LENGTH_SHORT).show();
+            //Snackbar.make(view.findViewById(android.R.id.content),"Divison must be added",Snackbar.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),"Divison must be added",Toast.LENGTH_SHORT).show();
         }
         else if(not.getText().toString().equals(""))
         {
-            Snackbar.make(view.findViewById(android.R.id.content),"Please specify the faculty name",Snackbar.LENGTH_SHORT).show();
+            //Snackbar.make(view.findViewById(android.R.id.content),"Please specify the faculty name",Snackbar.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),"Please specify the faculty name",Toast.LENGTH_SHORT).show();
         }
         else if(course.getText().toString().equals(""))
         {
-            Snackbar.make(view.findViewById(android.R.id.content),"Course code should be added",Snackbar.LENGTH_SHORT).show();
+            //Snackbar.make(view.findViewById(android.R.id.content),"Course code should be added",Snackbar.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),"Course code should be added",Toast.LENGTH_SHORT).show();
         }
         else if(title.getText().toString().equals(""))
         {
-            Snackbar.make(view.findViewById(android.R.id.content),"Course title should be specified",Snackbar.LENGTH_SHORT).show();
+            //Snackbar.make(view.findViewById(android.R.id.content),"Course title should be specified",Snackbar.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),"Course title should be specified",Toast.LENGTH_SHORT).show();
         }
         else
         {

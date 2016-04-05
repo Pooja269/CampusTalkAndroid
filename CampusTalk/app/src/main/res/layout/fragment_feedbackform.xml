@@ -115,13 +115,19 @@
             android:padding="8dp"
             android:layout_marginLeft="69dp"/>
     </LinearLayout>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="(1 - strongly disagree, 2 - disagree, 3 - neither agree nor disagree, 4 - agree, 5 - strongly agree)"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="4dp"/>
 
     <TableLayout
         android:stretchColumns="*"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TableRow android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp">
+        <TableRow>
             <TextView
                 
                 android:layout_height="50dp"
@@ -135,10 +141,10 @@
                 android:id="@+id/ans1">
             </Spinner>
         </TableRow>
-        <TableRow>
+        <TableRow android:layout_weight="1">
             <TextView
                 android:layout_height="50dp"
-                android:text="2. The teacher discusses topics and interacts\n in the class."
+                android:text="2. The teacher discusses topics and\n interacts in the class."
                 android:layout_weight="1"/>
             <Spinner
                 android:layout_height="35dp"
@@ -147,7 +153,7 @@
                 android:id="@+id/ans2">
             </Spinner>
         </TableRow>
-        <TableRow>
+        <TableRow android:layout_weight="1">
             <TextView
                 android:layout_height="50dp"
                 android:text="3. The teacher communicates clearly and\n inspires me by his teaching"
@@ -159,7 +165,7 @@
                 android:id="@+id/ans3">
             </Spinner>
         </TableRow>
-        <TableRow>
+        <TableRow android:layout_weight="1">
             <TextView
                 android:layout_height="50dp"
                 android:text="4. The teacher is punctual in the class."
@@ -171,7 +177,7 @@
                 android:id="@+id/ans4">
             </Spinner>
         </TableRow>
-        <TableRow>
+        <TableRow android:layout_weight="1">
             <TextView
                 android:layout_height="50dp"
                 android:text="5. The teacher comes well prepared for the\n   class."
@@ -187,7 +193,7 @@
         <TableRow>
             <TextView
                 android:layout_height="50dp"
-                android:text="6. The teacher encourages participation and\n discussion in the class."
+                android:text="6. The teacher encourages participation\n and discussion in the class."
                 android:layout_weight="1"/>
             <Spinner
                 android:layout_height="35dp"
@@ -213,7 +219,7 @@
         <TableRow>
             <TextView
                 android:layout_height="50dp"
-                android:text="8. The teacher's attitude towards the students\n is friendly and helpful."
+                android:text="8. The teacher's attitude towards the\n students is friendly and helpful."
                 android:layout_weight="1"/>
             <Spinner
                 android:layout_height="35dp"
@@ -226,7 +232,7 @@
         <TableRow>
             <TextView
                 android:layout_height="50dp"
-                android:text="9. The teacher is available and accessible in the department."
+                android:text="9. The teacher is available and\n accessible in the department."
                 android:layout_weight="1"/>
             <Spinner
                 android:layout_height="35dp"
@@ -238,7 +244,7 @@
         <TableRow>
             <TextView
                 android:layout_height="50dp"
-                android:text="10. The evaluation process is fair and unbiased."
+                android:text="10. The evaluation process is fair and\n unbiased."
                 android:layout_weight="1"/>
             <Spinner
                 android:layout_height="35dp"
@@ -251,7 +257,7 @@
         <TableRow>
             <TextView
                 android:layout_height="50dp"
-                android:text="11. Regular and timely feedback is given on our performance"
+                android:text="11. Regular and timely feedback is given on\n our performance"
                 android:layout_weight="1"/>
             <Spinner
                 android:layout_height="35dp"
@@ -264,7 +270,7 @@
         <TableRow>
             <TextView
                 android:layout_height="50dp"
-                android:text="12. Periodical assessments are conducted as per\n schedule."
+                android:text="12. Periodical assessments are conducted as\n per schedule."
                 android:layout_weight="1"/>
             <Spinner
                 android:layout_height="35dp"
