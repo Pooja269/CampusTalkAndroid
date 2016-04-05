@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:layout_margin="8dp"
+    android:elevation="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_notice_inside"/>
+
+            <LinearLayout
+                android:layout_marginLeft="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="Notice Title"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimary"/>
+
+                <LinearLayout
+                    android:paddingTop="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_calendar"/>
+                <TextView
+                    android:layout_marginLeft="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12 Nov 2015" />
+                </LinearLayout>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="3"
+                    android:ellipsize="end"
+                    tools:text="Notice description will be displayed here. All students are requested to submit their fees as soon as possible. After12/12/2015 there will be extra charges. "/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Download"
+                        android:drawableRight="@android:drawable/stat_sys_download"/>
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="right">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Base.Widget.AppCompat.Button.Borderless"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:text="more..."
+                    android:textColor="#bdbdbd"/>
+                 </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

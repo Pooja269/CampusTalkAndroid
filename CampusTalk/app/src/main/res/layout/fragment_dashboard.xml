@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+        <TableRow android:padding="8dp">
+            <LinearLayout
+                android:id="@+id/ll_blog"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/shape_circle"
+        android:gravity="center">
+
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/blog"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Blogs"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_notice"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/shape_circle"
+                    android:gravity="center">
+
+
+                    <ImageView
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:src="@drawable/notice"
+                        android:layout_gravity="center"
+                        />
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notices"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow android:padding="8dp">
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/shape_circle"
+                    android:gravity="center">
+
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/event"
+                        android:layout_gravity="center"
+                        />
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Events"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/shape_circle"
+                    android:gravity="center">
+
+
+                    <ImageView
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:src="@drawable/student"
+                        android:layout_gravity="center"
+                        />
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student\nProfiles"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow android:padding="8dp">
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/shape_circle"
+                    android:gravity="center">
+
+
+                    <ImageView
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:src="@drawable/asknlearn"
+                        android:layout_gravity="center"
+                        />
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ask &amp; Learn"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"/>
+            </LinearLayout>
+
+
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
