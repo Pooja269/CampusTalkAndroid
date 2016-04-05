@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="0dp"
+            android:id="@+id/event_image"
+            android:src="@drawable/event1"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#BDBDBD"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/event_title"
+            android:text="Event_Title"
+            android:gravity="left"
+            android:textSize="30dp"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:layout_gravity="center_vertical"
+            android:textStyle="bold"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#BDBDBD"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/date_icon"
+                android:layout_margin="20dp"
+                android:src="@drawable/calendar"
+                android:tint="#BDBDBD"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/event_date"
+                android:text="21-03-2016 To 25-03-2016"
+                android:textSize="21dp"
+                android:layout_margin="20dp"
+                android:layout_gravity="center_vertical"
+               />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/time_icon"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/clock"
+                android:tint="#BDBDBD"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/event_time"
+                android:text="02:30 PM"
+                android:textSize="21dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="40dp"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#BDBDBD"></View>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/event_desc"
+            android:layout_margin="20dp"
+            android:textSize="16dp"
+            android:text="Gujarat Red Cross has been the proud winner of National Blood Donation Trophy at the hands of President of India for 9 times for securing the "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="More..."
+            android:layout_marginRight="30dp"
+            android:id="@+id/more"
+           />
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
