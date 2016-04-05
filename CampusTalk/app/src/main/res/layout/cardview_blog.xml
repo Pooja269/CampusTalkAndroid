@@ -28,7 +28,7 @@
                 android:text="Dravya Shah"
                 android:paddingLeft="10dp"
                 android:layout_marginLeft="10dp"
-
+                android:drawableLeft="@android:drawable/ic_menu_myplaces"
                 android:id="@+id/blogdate"
                 android:textSize="20dp"/>
             <LinearLayout
