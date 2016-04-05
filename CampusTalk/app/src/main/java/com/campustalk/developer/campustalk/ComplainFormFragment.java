@@ -1,9 +1,11 @@
 package com.campustalk.developer.campustalk;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +14,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+
 /**
  * Created by khushali on 30/03/2016.
  */
-public class ComplainFormFragment extends Fragment {
+public class ComplainFormFragment extends Fragment implements Callback{
 
     View view;
 
@@ -35,6 +45,13 @@ public class ComplainFormFragment extends Fragment {
                 validateAndSubmit();
             }
         });
+
+        HashMap<String,String> parametersMap = new HashMap<>();
+        parametersMap.put("operationtype","checkusername");
+
+        DownloadData data = new DownloadData("http://192.168.2.52:8090/CampusTalk/ProvideResourcesServlet",parametersMap,this);
+        data.execute();
+
     }
 
     void validateAndSubmit(){
@@ -53,5 +70,10 @@ public class ComplainFormFragment extends Fragment {
             desc.setText("");
         }
 
+    }
+
+    @Override
+    public void getData(String JSONData) {
+        Log.d("result",JSONData);
     }
 }
