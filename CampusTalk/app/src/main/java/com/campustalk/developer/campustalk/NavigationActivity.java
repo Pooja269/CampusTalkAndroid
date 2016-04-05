@@ -42,6 +42,11 @@ public class NavigationActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = new DashboardFragment();
+        fragmentManager.beginTransaction().replace(R.id.frame,fragment).commit();
+
     }
 
     @Override
@@ -83,17 +88,14 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-
-        if (id == R.id.nav_notices) {
+         if(id == R.id.nav_dashboard){
+             Fragment fragment = new DashboardFragment();
+             fragmentManager.beginTransaction().replace(R.id.frame,fragment).commit();
+         }
+        else if (id == R.id.nav_documents) {
             // Handle the notice action
 
-        } else if (id == R.id.nav_blogs) {
-
-        } else if (id == R.id.nav_asknlearn) {
-
-        } else if (id == R.id.nav_studentProfiles) {
-
-        } else if (id == R.id.nav_feedbackForm) {
+        }  else if (id == R.id.nav_feedbackForm) {
             Fragment fragment=new FeedbackFormFragment();
             fragmentManager.beginTransaction().replace(R.id.frame,fragment).commit();
 

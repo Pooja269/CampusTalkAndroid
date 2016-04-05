@@ -46,4 +46,6 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+    <string name="title_activity_notice">NoticeActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

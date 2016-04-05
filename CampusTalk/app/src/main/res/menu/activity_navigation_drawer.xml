@@ -3,40 +3,36 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_notices"
-            android:icon="@drawable/complain"
-            android:title="Notices" />
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/dashboard"
+            android:title="Dashboard" />
         <item
-            android:id="@+id/nav_blogs"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Blogs" />
-        <item
-            android:id="@+id/nav_events"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Events" />
-        <item
-            android:id="@+id/nav_asknlearn"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Ask n Learn" />
-        <item
-            android:id="@+id/nav_studentProfiles"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Student Profiles" />
+            android:id="@+id/nav_documents"
+            android:icon="@drawable/document"
+            android:title="My Documents" />
+
+
     </group>
 
-    <item android:title="Forms">
+    <item android:title="Forms" android:checkable="true">
         <menu>
+            <group android:checkableBehavior="single">
             <item
                 android:id="@+id/nav_complainForm"
                 android:icon="@drawable/complain"
                 android:title="Complain Forms" />
             <item
                 android:id="@+id/nav_feedbackForm"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/feedback"
                 android:title="Feedback Forms" />
+            </group>
         </menu>
     </item>
 
-    <item android:title="Logout" android:id="@+id/nav_logout"></item>
-
+    <group android:checkableBehavior="single">
+    <item
+        android:title="Logout"
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/logout"></item>
+    </group>
 </menu>
