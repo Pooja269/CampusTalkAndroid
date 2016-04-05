@@ -19,6 +19,15 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="AppTheme.ActionBar" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:buttonStyle">@style/ButtonAppButtonTheme</item>
+        <item name="android:imageButtonStyle">@style/ImageButtonAppButtonTheme</item>
+
+    </style>
+
     <style name="TextViewStyle" parent="TextAppearance.AppCompat.Medium">
 
         <item name="android:textColor">#ff0000</item>

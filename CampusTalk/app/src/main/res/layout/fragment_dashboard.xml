@@ -152,7 +152,8 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@drawable/shape_circle"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:id="@+id/ll_asknlearn">
 
 
                     <ImageView
