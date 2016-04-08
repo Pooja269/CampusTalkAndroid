@@ -46,11 +46,15 @@ public class ConfigURLDialog extends DialogFragment {
         //check whether edit text entry is empty or not
         String getURL = ((EditText)view.findViewById(R.id.et_url)).getText().toString();
 
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(getString(R.string.config_settings), Context.MODE_PRIVATE);
-        sharedPreferences.edit().putString("url",getURL).commit();
+        if(getURL.equals("")){
+            ((EditText) view.findViewById(R.id.et_url)).setError("Enter URL");
+        }else {
 
-        dismiss();
+            SharedPreferences sharedPreferences = getActivity().getSharedPreferences(getString(R.string.config_settings), Context.MODE_PRIVATE);
+            sharedPreferences.edit().putString("url", getURL).commit();
 
+            dismiss();
+        }
 
     }
 }

@@ -47,6 +47,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 public class LoginActivity extends AppCompatActivity implements Callback{
 
     ProgressDialog progressDialog;
+    String username,password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,26 +65,36 @@ public class LoginActivity extends AppCompatActivity implements Callback{
 
     public void onLoginClick(View view){
 
-        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.config_settings),MODE_PRIVATE);
-        String baseURL = sharedPreferences.getString("url", "");
+        EditText etUsername = (EditText)findViewById(R.id.et_username);
+        EditText etPassword = (EditText) findViewById(R.id.et_password);
 
-        String username = ((EditText)findViewById(R.id.et_username)).getText().toString();
-        String password = ((EditText)findViewById(R.id.et_password)).getText().toString();
+        username = etUsername.getText().toString();
+        password = etPassword.getText().toString();
 
-        HashMap<String,String> parametersMap = new HashMap<>();
-        parametersMap.put("username",username);
-        parametersMap.put("password",password);
-        parametersMap.put("operation","login");
+        if(username.equals("")){
+            etUsername.setError("Enter Username");
+        }
+        else if(password.equals("")){
+            etPassword.setError("Enter Password");
+        }
+        else {
 
-        progressDialog = new ProgressDialog(LoginActivity.this);
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+            SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.config_settings), MODE_PRIVATE);
+            String baseURL = sharedPreferences.getString("url", "");
 
-        DownloadData data = new DownloadData(baseURL+getString(R.string.url),parametersMap,this);
-        data.execute();
 
-        Intent intent=new Intent(LoginActivity.this,NavigationActivity.class);
-        startActivity(intent);
+            HashMap<String, String> parametersMap = new HashMap<>();
+            parametersMap.put("username", username);
+            parametersMap.put("password", password);
+            parametersMap.put("operation", "login");
+
+            progressDialog = new ProgressDialog(LoginActivity.this);
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+
+            DownloadData data = new DownloadData(baseURL + getString(R.string.url), parametersMap, this);
+            data.execute();
+        }
     }
 
     void openConfigurationURL(){
@@ -98,16 +109,55 @@ public class LoginActivity extends AppCompatActivity implements Callback{
         try {
 
             JSONObject jsonObject = new JSONObject(JSONData);
-            String name = jsonObject.getString("name");
 
-            SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.config_settings), MODE_PRIVATE);
-            SharedPreferences.Editor sharedEditor = sharedPreferences.edit();
+            if(jsonObject.getString("login").equals("Success")) {
+                String name = jsonObject.getString("name");
+                String otherDetails = jsonObject.getString("otherDetails");
+                String phone = jsonObject.getString("phone");
+                String imagePath = jsonObject.getString("imagePath");
+                String trainingDetails = jsonObject.getString("trainingDetails");
+                String department = jsonObject.getString("department");
+                String passingyear = jsonObject.getString("passingyear");
+                String altphone = jsonObject.getString("altphone");
+                String deptid = jsonObject.getString("deptid");
+                String projectDetails = jsonObject.getString("projectDetails");
+                String email = jsonObject.getString("email");
+                String dob = jsonObject.getString("dob");
+                String gender = jsonObject.getString("gender");
+                String enrollment = jsonObject.getString("enrollment");
+                String semester = jsonObject.getString("semester");
 
-            sharedEditor.putString("name",name);
 
-            System.out.println(name);
+                SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.config_settings), MODE_PRIVATE);
+                SharedPreferences.Editor sharedEditor = sharedPreferences.edit();
 
-            sharedEditor.commit();
+                sharedEditor.putString("name", name);
+                sharedEditor.putString("otherDetails",otherDetails);
+                sharedEditor.putString("phone",phone);
+                sharedEditor.putString("imagePath",imagePath);
+                sharedEditor.putString("trainingDetails",trainingDetails);
+                sharedEditor.putString("department",department);
+                sharedEditor.putString("passingyear",passingyear);
+                sharedEditor.putString("altphone",altphone);
+                sharedEditor.putString("deptid",deptid);
+                sharedEditor.putString("projectDetails",projectDetails);
+                sharedEditor.putString("email",email);
+                sharedEditor.putString("dob",dob);
+                sharedEditor.putString("gender",gender);
+                sharedEditor.putString("enrollment",enrollment);
+                sharedEditor.putString("semester",semester);
+                sharedEditor.putString("username",username);
+                sharedEditor.putString("password",password);
+
+                sharedEditor.commit();
+
+                //open navigation drawer activity
+                Intent intent = new Intent(LoginActivity.this, NavigationActivity.class);
+                startActivity(intent);
+            }else{
+
+                ((EditText) findViewById(R.id.et_password)).setError("Enter valid Credentials");
+            }
 
         }catch (Exception e){}
         finally {
