@@ -25,10 +25,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dravya Shah"
+                android:text=" Dravya Shah"
                 android:paddingLeft="10dp"
                 android:layout_marginLeft="10dp"
-                android:drawableLeft="@android:drawable/ic_menu_myplaces"
+                android:drawableLeft="@drawable/answer_user"
                 android:id="@+id/blogdate"
                 android:textSize="20dp"/>
             <LinearLayout
