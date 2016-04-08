@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:padding="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="top"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="8dp">
 
         <ImageView
             android:layout_width="match_parent"
@@ -29,9 +31,9 @@
             android:text="Event_Title"
             android:gravity="left"
             android:textSize="30dp"
-            android:layout_margin="10dp"
-            android:padding="5dp"
+            android:padding="8dp"
             android:layout_gravity="center_vertical"
+            android:textColor="@color/colorPrimary"
             android:textStyle="bold"/>
 
         <View
@@ -42,13 +44,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="8dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:id="@+id/date_icon"
-                android:layout_margin="20dp"
                 android:src="@drawable/calendar"
                 android:tint="#BDBDBD"
                 />
@@ -58,33 +60,35 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/event_date"
                 android:text="21-03-2016 To 25-03-2016"
-                android:textSize="21dp"
-                android:layout_margin="20dp"
+                android:textSize="18dp"
+                android:layout_marginLeft="8dp"
                 android:layout_gravity="center_vertical"
                />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
+            android:padding="8dp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:id="@+id/time_icon"
-                android:layout_marginLeft="20dp"
                 android:src="@drawable/clock"
                 android:tint="#BDBDBD"
                 />
 
             <TextView
+                android:layout_marginLeft="8dp"
+                android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/event_time"
                 android:text="02:30 PM"
-                android:textSize="21dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="40dp"
+                android:textSize="18dp"
                 />
         </LinearLayout>
 
@@ -95,17 +99,19 @@
 
         <TextView
             android:layout_width="match_parent"
+            android:padding="8dp"
             android:layout_height="wrap_content"
             android:id="@+id/event_desc"
-            android:layout_margin="20dp"
             android:textSize="16dp"
+            android:textColor="#000000"
             android:text="Gujarat Red Cross has been the proud winner of National Blood Donation Trophy at the hands of President of India for 9 times for securing the "/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:text="More..."
-            android:layout_marginRight="30dp"
+            android:paddingBottom="8dp"
+            android:paddingRight="8dp"
             android:id="@+id/more"
            />
 

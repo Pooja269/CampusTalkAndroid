@@ -39,6 +39,8 @@ public class ComplainFormFragment extends Fragment implements Callback{
     @Override
     public void onStart() {
         super.onStart();
+
+
         ((Button) view.findViewById(R.id.btn_submit)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,11 +48,7 @@ public class ComplainFormFragment extends Fragment implements Callback{
             }
         });
 
-        HashMap<String,String> parametersMap = new HashMap<>();
-        parametersMap.put("operationtype","checkusername");
 
-        DownloadData data = new DownloadData("http://192.168.2.52:8090/CampusTalk/ProvideResourcesServlet",parametersMap,this);
-        data.execute();
 
     }
 
