@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingLeft="4dp">
+
+        <TableRow android:padding="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Khushali Shah"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+
+        </TableRow>
+
+        <TableRow android:padding="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+
+        </TableRow>
+
+        <TableRow android:padding="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date of Birth"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25 Nov 1994"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+
+        </TableRow>
+
+        <TableRow android:padding="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="shahkhushi.17@gmail.com"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+
+        </TableRow>
+
+        <TableRow android:padding="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Department"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Computer"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+
+        </TableRow>
+
+        <TableRow android:padding="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Semester"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+
+        </TableRow>
+
+        <TableRow android:padding="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8866273260"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+
+        </TableRow>
+
+        <TableRow android:padding="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alternate Phone"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9924189252"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+
+        </TableRow>
+
+        <TableRow android:padding="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enrollment"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="120280107002"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+
+        </TableRow>
+
+        <TableRow android:padding="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Passing Year"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2016"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>

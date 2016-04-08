@@ -64,4 +64,7 @@
     
     <string name="title_activity_notice">NoticeActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="url">/AndroidServices</string>
+    <string name="config_settings">CONFIG_FILE</string>
 </resources>

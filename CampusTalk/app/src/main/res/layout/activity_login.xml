@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/uname"
+                    android:id="@+id/et_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_email"
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/password"
+                    android:id="@+id/et_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_password"
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:text="Remember me?"
                 android:layout_marginTop="8dp"
-                android:id="@+id/checked"/>
+                android:id="@+id/chk_rememberme"/>
             <Button
                 android:id="@+id/login"
                 style="?android:textAppearanceSmall"
@@ -86,7 +86,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/action_login_in"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:onClick="onLoginClick"/>
 
         </LinearLayout>
     </ScrollView>
