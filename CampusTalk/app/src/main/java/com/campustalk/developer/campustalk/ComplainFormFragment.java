@@ -60,10 +60,8 @@ public class ComplainFormFragment extends Fragment implements Callback{
         EditText desc = (EditText)view.findViewById(R.id.complain_desc);
         if(title.getText().toString().equals(""))
             Toast.makeText(getActivity(),"Add Title",Toast.LENGTH_SHORT).show();
-            //Snackbar.make(view.findViewById(android.R.id.content),"Title must be added",Snackbar.LENGTH_SHORT).show();
         else if(desc.getText().toString().equals(""))
             Toast.makeText(getActivity(), "Add Description", Toast.LENGTH_SHORT).show();
-            //Snackbar.make(view.findViewById(android.R.id.content),"Description must be added", Snackbar.LENGTH_SHORT).show();
         else{
             Toast.makeText(getActivity(),"Complain submitted successfully",Toast.LENGTH_SHORT).show();
             title.setText("");
