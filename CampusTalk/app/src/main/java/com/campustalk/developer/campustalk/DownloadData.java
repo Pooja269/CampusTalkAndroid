@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -32,7 +33,7 @@ public class DownloadData extends AsyncTask<Void,Void,String> {
             Set<String> keySet = parametersMap.keySet();
 
             for(String key : keySet){
-                builtURL.append(key+"="+parametersMap.get(key)+"&");
+                builtURL.append(URLEncoder.encode(key, "UTF-8")+"="+URLEncoder.encode(parametersMap.get(key),"UTF-8")+"&");
             }
 
             String finalURL = builtURL.substring(0,builtURL.length()-1);

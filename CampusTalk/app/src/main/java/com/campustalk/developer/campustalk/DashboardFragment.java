@@ -48,5 +48,12 @@ public class DashboardFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        ((LinearLayout)view.findViewById(R.id.ll_events)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }
