@@ -81,8 +81,6 @@ public class LoginActivity extends AppCompatActivity implements Callback{
 
             SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.config_settings), MODE_PRIVATE);
             String baseURL = sharedPreferences.getString("url", "");
-
-
             HashMap<String, String> parametersMap = new HashMap<>();
             parametersMap.put("username", username);
             parametersMap.put("password", password);

@@ -18,12 +18,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Department :"
-                    android:id="@+id/department" />
+                    android:id="@+id/tv_department" />
                 <Spinner
                     android:layout_weight="9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/department">
+                    android:entries="@array/department"
+                    android:id="@+id/sp_department">
                 </Spinner>
             </TableRow>
 
@@ -33,12 +34,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Semester :"
-                    android:id="@+id/sem" />
+                    android:id="@+id/tv_semester" />
                 <Spinner
                     android:layout_weight="9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/semester">
+                    android:entries="@array/semester"
+                    android:id="@+id/sp_semester">
                 </Spinner>
             </TableRow>
 
@@ -47,12 +49,13 @@
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Division :" />
+                    android:text="Division :"
+                    android:id="@+id/tv_division"/>
                 <EditText
                     android:layout_weight="9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/div" />
+                    android:id="@+id/et_division" />
 
             </TableRow>
 
@@ -62,12 +65,13 @@
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Name of Teacher :" />
+                    android:text="Name of Teacher :"
+                    android:id="@+id/tv_teacher"/>
                 <EditText
                     android:layout_weight="9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/teacher" />
+                    android:id="@+id/et_teacher" />
             </TableRow>
 
             <TableRow android:padding="8dp">
@@ -76,12 +80,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Course Code :"
+                    android:id="@+id/tv_courseCode"
                     />
                 <EditText
                     android:layout_weight="9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/courseCode" />
+                    android:id="@+id/et_courseCode"
+                    android:inputType="number"/>
 
             </TableRow>
             <TableRow android:padding="8dp">
@@ -89,27 +95,14 @@
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Course Title :" />
+                    android:text="Course Title :"
+                    android:id="@+id/title"/>
                 <EditText
                     android:layout_weight="9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/courseTitle" />
+                    android:id="@+id/et_title" />
             </TableRow>
-
-            <TableRow android:padding="8dp">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Comment :" />
-                <EditText
-                    android:layout_weight="9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </TableRow>
-
         </TableLayout>
 
         <TableLayout
@@ -127,7 +120,8 @@
             <Spinner android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:entries="@array/options"
-                android:layout_gravity="center_vertical"></Spinner>
+                android:layout_gravity="center_vertical"
+                android:id="@+id/sp_ans1"></Spinner>
 
         </TableRow>
 
@@ -142,7 +136,8 @@
                 <Spinner android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/options"
-                    android:layout_gravity="center_vertical"></Spinner>
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/sp_ans2"></Spinner>
 
             </TableRow>
 
@@ -157,7 +152,8 @@
                 <Spinner android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/options"
-                    android:layout_gravity="center_vertical"></Spinner>
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/sp_ans3"></Spinner>
 
             </TableRow>
 
@@ -172,7 +168,8 @@
                 <Spinner android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/options"
-                    android:layout_gravity="center_vertical"></Spinner>
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/sp_ans4"></Spinner>
 
             </TableRow>
 
@@ -187,7 +184,8 @@
                 <Spinner android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/options"
-                    android:layout_gravity="center_vertical"></Spinner>
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/sp_ans5"></Spinner>
 
             </TableRow>
 
@@ -202,7 +200,8 @@
                 <Spinner android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/options"
-                    android:layout_gravity="center_vertical"></Spinner>
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/sp_ans6"></Spinner>
 
             </TableRow>
 
@@ -217,7 +216,8 @@
                 <Spinner android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/options"
-                    android:layout_gravity="center_vertical"></Spinner>
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/sp_ans7"></Spinner>
 
             </TableRow>
 
@@ -232,7 +232,8 @@
                 <Spinner android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/options"
-                    android:layout_gravity="center_vertical"></Spinner>
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/sp_ans8"></Spinner>
 
             </TableRow>
 
@@ -247,7 +248,8 @@
                 <Spinner android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/options"
-                    android:layout_gravity="center_vertical"></Spinner>
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/sp_ans9"></Spinner>
 
             </TableRow>
 
@@ -262,7 +264,8 @@
                 <Spinner android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/options"
-                    android:layout_gravity="center_vertical"></Spinner>
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/sp_ans10"></Spinner>
 
             </TableRow>
 
@@ -277,7 +280,8 @@
                 <Spinner android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/options"
-                    android:layout_gravity="center_vertical"></Spinner>
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/sp_ans11"></Spinner>
 
             </TableRow>
 
@@ -292,7 +296,8 @@
                 <Spinner android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/options"
-                    android:layout_gravity="center_vertical"></Spinner>
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/sp_ans12"></Spinner>
 
             </TableRow>
 
@@ -307,7 +312,8 @@
                 <Spinner android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/options"
-                    android:layout_gravity="center_vertical"></Spinner>
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/sp_ans13"></Spinner>
 
             </TableRow>
 
@@ -327,15 +333,17 @@
             <EditText
                 android:padding="8dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/et_comment"/>
         </LinearLayout>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Submit"
-                android:id="@+id/btnSubmit"
-                android:layout_gravity="center_horizontal"/>
+                android:id="@+id/btn_submit"
+                android:layout_gravity="center_horizontal"
+               />
 
     </LinearLayout>
 </ScrollView>
