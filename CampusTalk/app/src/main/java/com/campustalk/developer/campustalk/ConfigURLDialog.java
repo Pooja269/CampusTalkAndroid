@@ -51,7 +51,7 @@ public class ConfigURLDialog extends DialogFragment {
         }else {
 
             SharedPreferences sharedPreferences = getActivity().getSharedPreferences(getString(R.string.config_settings), Context.MODE_PRIVATE);
-            sharedPreferences.edit().putString("url", getURL).commit();
+            sharedPreferences.edit().putString("url", "http://"+getURL).commit();
 
             dismiss();
         }

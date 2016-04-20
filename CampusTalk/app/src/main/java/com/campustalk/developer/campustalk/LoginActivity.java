@@ -87,6 +87,7 @@ public class LoginActivity extends AppCompatActivity implements Callback{
             parametersMap.put("operation", "login");
 
             progressDialog = new ProgressDialog(LoginActivity.this);
+            progressDialog.setMessage("Signing in...");
             progressDialog.setCancelable(false);
             progressDialog.show();
 

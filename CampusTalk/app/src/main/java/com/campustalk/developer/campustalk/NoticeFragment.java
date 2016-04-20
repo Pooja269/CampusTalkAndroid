@@ -1,5 +1,6 @@
 package com.campustalk.developer.campustalk;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -39,11 +40,16 @@ public class NoticeFragment extends Fragment implements Callback{
     String semester;
     List<Notice> noticeList;
     NoticeAdapter adapter;
+    ProgressDialog progressDialog;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        noticeType = getArguments().getString("noticeType", "");
+        semester = getArguments().getString("semester","");
+
+        Log.d("NoticeFragment","onCreateView"+noticeType);
         noticeList = new ArrayList<>();
         adapter = new NoticeAdapter(noticeList);
         view = inflater.inflate(R.layout.layout_recyclerview,container,false);
@@ -77,18 +83,16 @@ public class NoticeFragment extends Fragment implements Callback{
 
         super.setUserVisibleHint(isVisibleToUser);
         if(isVisibleToUser){
-            Log.d("Notices","Visible hint");
-            noticeType = getArguments().getString("noticeType", "");
-            semester = getArguments().getString("semester","");
+            Log.d("Notices","Visible hint"+noticeType);
+                loadNotices(noticeType, semester, 1);
 
-            loadNotices(noticeType,semester,1);
         }
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        Log.d("Notices", "start");
+        Log.d("Notices", "start"+noticeType);
     }
 
     void loadNotices(String noticeType,String semester,int pageNo){
@@ -107,6 +111,11 @@ public class NoticeFragment extends Fragment implements Callback{
         parametersMap.put("pageNo",String.valueOf(pageNo));
         parametersMap.put("operation","notice");
 
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Loading Notices...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
         DownloadData data = new DownloadData(url,parametersMap,this);
         data.execute();
 
@@ -121,7 +130,10 @@ public class NoticeFragment extends Fragment implements Callback{
             totalPages = jsonObject.getInt("totalPages");
             JSONArray jsonArray = jsonObject.getJSONArray("notices");
 
+            Log.d("ArrayLength",String.valueOf(jsonArray.length()));
+
             if(jsonArray.length()==0){
+                Log.d("NoticeFragment","ArrayLength zero");
                 Fragment fragment = NoDataAvailableFragment.setMessage("No Data Available !","Ooops ! No notices available");
                 FragmentManager manager = getActivity().getSupportFragmentManager();
                 manager.beginTransaction().replace(R.id.frame,fragment,"NO DATA").commit();
@@ -150,17 +162,15 @@ public class NoticeFragment extends Fragment implements Callback{
 
                 Notice not = new Notice(noticeID, title, desc, date, filePath, semester, enroll);
                 noticeList.add(not);
-
-                adapter.notifyDataSetChanged();
             }
-
+                adapter.notifyDataSetChanged();
             }
 
 
         }catch(Exception e){
 
         }finally {
-
+            progressDialog.dismiss();
         }
     }
 
