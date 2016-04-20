@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -45,7 +46,8 @@ public class QuestionActivity extends AppCompatActivity {
     {
         System.out.println("Method called");
         AlertDialog.Builder dialog = new AlertDialog.Builder(QuestionActivity.this);
-        dialog.setTitle("Post your question here...");
+        dialog.setTitle(Html.fromHtml("<font color='#FF7F27'>Post your question here...</font>"));
+
         View view=getLayoutInflater().inflate(R.layout.dialog_fragment_question,null);
         dialog.setView(view);
         Button btn=(Button) view.findViewById(R.id.btn_post);
