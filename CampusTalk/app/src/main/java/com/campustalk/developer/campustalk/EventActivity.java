@@ -32,6 +32,7 @@ public class EventActivity extends AppCompatActivity implements Callback{
     boolean loaded = false;
     ProgressDialog progressDialog;
     EventAdapter adapter;
+    int totalPages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,15 @@ public class EventActivity extends AppCompatActivity implements Callback{
         adapter = new EventAdapter();
 
         recyclerView.setAdapter(adapter);
+
+        recyclerView.setOnScrollListener(new InfiniteScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int current_page) {
+                if (current_page <= totalPages) {
+                    loadEventData(current_page);
+                }
+            }
+        });
 
         if(!loaded){
 
@@ -97,6 +107,7 @@ public class EventActivity extends AppCompatActivity implements Callback{
 
             JSONObject jsonObject = new JSONObject(JSONData);
             JSONArray jsonArray = jsonObject.getJSONArray("events");
+            totalPages = jsonObject.getInt("totalPages");
 
             if(jsonArray.length() == 0){
 
