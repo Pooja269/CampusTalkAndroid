@@ -26,7 +26,7 @@
 
             <ImageView
                 android:id="@+id/iv_movie_backdrop_poster"
-                android:src="@drawable/profile"
+                android:src="@drawable/profile_pic"
                 app:layout_scrollFlags="scroll|enterAlways"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

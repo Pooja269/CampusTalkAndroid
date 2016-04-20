@@ -60,9 +60,9 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="title_activity_question">QuestionActivity</string>
+    <string name="title_activity_question">Ask &amp; Learn</string>
     
-    <string name="title_activity_notice">NoticeActivity</string>
+    <string name="title_activity_notice">Notices</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
     <string name="url">/AndroidServices</string>

@@ -74,6 +74,18 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".EventActivity"
+            android:label="Events"
+            android:theme="@style/AppTheme.ActionBar"
+            android:screenOrientation="portrait">
+
+            <intent-filter>
+                <action android:name="com.campustalk.developer.campustalk.EVENTACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
 
     </application>
 
