@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp">
 
@@ -15,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
-            android:id="@+id/event_image"
+            android:id="@+id/ivEvent_image"
             android:src="@drawable/spandanevent"
             android:adjustViewBounds="true"/>
 
@@ -26,12 +28,12 @@
             />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/event_title"
+            android:id="@+id/tvEvent_title"
             android:text="Spandan 2015"
             android:gravity="left"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:padding="8dp"
             android:layout_gravity="center_vertical"
             android:textColor="@color/colorPrimary"
@@ -57,11 +59,11 @@
                 />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/event_date"
+                android:id="@+id/tvEvent_date"
                 android:text="21-03-2016 To 25-03-2016"
-                android:textSize="18dp"
+                android:textSize="14dp"
                 android:layout_marginLeft="8dp"
                 android:layout_gravity="center_vertical"
                />
@@ -85,11 +87,11 @@
             <TextView
                 android:layout_marginLeft="8dp"
                 android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/event_time"
+                android:id="@+id/tvEvent_time"
                 android:text="12:30 PM"
-                android:textSize="18dp"
+                android:textSize="14dp"
                 />
         </LinearLayout>
 
@@ -102,10 +104,12 @@
             android:layout_width="match_parent"
             android:padding="8dp"
             android:layout_height="wrap_content"
-            android:id="@+id/event_desc"
+            android:id="@+id/tvEvent_desc"
             android:textSize="16dp"
             android:textColor="#000000"
-            android:text="SPANDAN is a Socio - Cultural festival encompassed during the Joy Of Giving Week. It envisions Social Awakening, blends it with Cultural Zeal and sensitizes the youth about Social Responsibility. "/>
+            android:text="SPANDAN is a Socio - Cultural festival encompassed during the Joy Of Giving Week. It envisions Social Awakening, blends it with Cultural Zeal and sensitizes the youth about Social Responsibility. "
+            android:lines="3"
+            android:ellipsize="end"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -113,7 +117,7 @@
             android:text="More..."
             android:paddingBottom="8dp"
             android:paddingRight="8dp"
-            android:id="@+id/more"
+            android:id="@+id/tvMore"
            />
 
     </LinearLayout>
