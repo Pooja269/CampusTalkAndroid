@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,12 +21,14 @@ import android.widget.LinearLayout;
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        actionBar = getSupportActionBar();
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -106,14 +109,19 @@ public class NavigationActivity extends AppCompatActivity
          }
         else if (id == R.id.nav_documents) {
             // Handle the notice action
+             Fragment fragment = new DocumentsDownloadFragment();
+             fragmentManager.beginTransaction().replace(R.id.frame,fragment).commit();
+             actionBar.setTitle("My Documents");
 
         }  else if (id == R.id.nav_feedbackForm) {
             Fragment fragment=new FeedbackFormFragment();
             fragmentManager.beginTransaction().replace(R.id.frame,fragment).commit();
+             actionBar.setTitle("Feedback");
 
         } else if (id == R.id.nav_complainForm) {
             Fragment fragment = new ComplainFormFragment();
             fragmentManager.beginTransaction().replace(R.id.frame,fragment).commit();
+             actionBar.setTitle("Complain");
 
 
         }

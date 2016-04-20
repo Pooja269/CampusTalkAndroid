@@ -1,5 +1,7 @@
 package com.campustalk.developer.campustalk;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -65,12 +67,27 @@ public class MyProfileActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
 
+            SharedPreferences sharedPreferences = getActivity().getSharedPreferences(getString(R.string.config_settings), Context.MODE_PRIVATE);
             View rootView=null;
             System.out.println(getArguments().getInt(ARG_SECTION_NUMBER));
             if((getArguments().getInt(ARG_SECTION_NUMBER))==1) {
                 rootView = inflater.inflate(R.layout.fragment_generaldetail, container, false);
+                ((TextView) rootView.findViewById(R.id.tv_name)).setText(sharedPreferences.getString("name",""));
+                ((TextView) rootView.findViewById(R.id.tv_enrollment)).setText(sharedPreferences.getString("enrollment",""));
+                ((TextView) rootView.findViewById(R.id.tv_DOB)).setText(sharedPreferences.getString("dob",""));
+                ((TextView) rootView.findViewById(R.id.tv_dept)).setText(sharedPreferences.getString("department",""));
+                ((TextView)rootView.findViewById(R.id.tv_alternate_phone)).setText(sharedPreferences.getString("altphone",""));
+                ((TextView)rootView.findViewById(R.id.tv_email)).setText(sharedPreferences.getString("email",""));
+                ((TextView)rootView.findViewById(R.id.tv_gender)).setText(sharedPreferences.getString("gender",""));
+                ((TextView)rootView.findViewById(R.id.tv_passing_year)).setText(sharedPreferences.getString("passingyear",""));
+                ((TextView)rootView.findViewById(R.id.tv_phone)).setText(sharedPreferences.getString("phone",""));
+                ((TextView)rootView.findViewById(R.id.tv_sem)).setText(sharedPreferences.getString("semester",""));
+
             }else{
                 rootView = inflater.inflate(R.layout.fragment_educationaldetail,container,false);
+                ((TextView)rootView.findViewById(R.id.tv_projectdetails)).setText(sharedPreferences.getString("projectDetails",""));
+                ((TextView)rootView.findViewById(R.id.tv_trainingdetails)).setText(sharedPreferences.getString("trainingDetails",""));
+                ((TextView)rootView.findViewById(R.id.tv_otherdetails)).setText(sharedPreferences.getString("otherDetails",""));
             }
             return rootView;
         }

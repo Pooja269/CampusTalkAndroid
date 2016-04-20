@@ -2,6 +2,7 @@ package com.campustalk.developer.campustalk;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -54,6 +55,20 @@ public class AnswerActivity extends AppCompatActivity {
             dialog.create();
             dialog.show();
         }
+
+        AlertDialog.Builder dialog = new AlertDialog.Builder(AnswerActivity.this);
+        dialog.setTitle("What should I do after completing my Bachelor's degree?");
+        View view=getLayoutInflater().inflate(R.layout.dialog_fragment_answer,null);
+        dialog.setView(view);
+        Button btn=(Button) view.findViewById(R.id.btn_submit);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        dialog.create();
+        dialog.show();
 
         return super.onOptionsItemSelected(item);
     }

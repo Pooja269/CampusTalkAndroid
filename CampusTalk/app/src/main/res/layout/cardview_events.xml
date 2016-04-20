@@ -13,10 +13,11 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
             android:id="@+id/event_image"
-            android:src="@drawable/event1"/>
+            android:src="@drawable/spandanevent"
+            android:adjustViewBounds="true"/>
 
         <View
             android:layout_width="match_parent"
@@ -28,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/event_title"
-            android:text="Event_Title"
+            android:text="Spandan 2015"
             android:gravity="left"
             android:textSize="30dp"
             android:padding="8dp"
@@ -87,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/event_time"
-                android:text="02:30 PM"
+                android:text="12:30 PM"
                 android:textSize="18dp"
                 />
         </LinearLayout>
@@ -104,7 +105,7 @@
             android:id="@+id/event_desc"
             android:textSize="16dp"
             android:textColor="#000000"
-            android:text="Gujarat Red Cross has been the proud winner of National Blood Donation Trophy at the hands of President of India for 9 times for securing the "/>
+            android:text="SPANDAN is a Socio - Cultural festival encompassed during the Joy Of Giving Week. It envisions Social Awakening, blends it with Cultural Zeal and sensitizes the youth about Social Responsibility. "/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

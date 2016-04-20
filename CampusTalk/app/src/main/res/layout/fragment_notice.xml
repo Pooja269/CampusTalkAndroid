@@ -8,10 +8,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.campustalk.developer.campustalk.NoticeActivity$PlaceholderFragment">
 
-    <TextView
-        android:id="@+id/section_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sample "/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/frame">
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerView"/>
+    </FrameLayout>
 
 </RelativeLayout>

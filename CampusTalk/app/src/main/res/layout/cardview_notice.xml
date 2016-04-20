@@ -38,7 +38,8 @@
                         tools:text="Notice Title"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:textColor="@color/colorPrimary"/>
+                        android:textColor="@color/colorPrimary"
+                        android:id="@+id/tv_notice_title"/>
 
                 <LinearLayout
                     android:paddingTop="4dp"
@@ -53,7 +54,8 @@
                     android:layout_marginLeft="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="12 Nov 2015" />
+                    android:text="12 Nov 2015"
+                    android:id="@+id/tv_notice_date"/>
                 </LinearLayout>
 
                 <TextView
@@ -64,12 +66,14 @@
                     android:layout_height="wrap_content"
                     android:lines="3"
                     android:ellipsize="end"
-                    tools:text="Notice description will be displayed here. All students are requested to submit their fees as soon as possible. After12/12/2015 there will be extra charges. "/>
+                    tools:text="Notice description will be displayed here. All students are requested to submit their fees as soon as possible. After12/12/2015 there will be extra charges. "
+                    android:id="@+id/tv_notice_desc"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <Button
+                        android:id="@+id/btn_notice_download"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Download"
@@ -78,14 +82,15 @@
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
                      android:gravity="right">
-                <Button
+                <TextView
+                    android:padding="4dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/Base.Widget.AppCompat.Button.Borderless"
                     android:layout_gravity="right"
                     android:gravity="right"
                     android:text="more..."
-                    android:textColor="#bdbdbd"/>
+                    android:textColor="#bdbdbd"
+                    android:id="@+id/tv_notice_more"/>
                  </LinearLayout>
 
                 </LinearLayout>
