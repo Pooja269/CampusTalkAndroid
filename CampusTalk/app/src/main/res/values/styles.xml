@@ -47,4 +47,7 @@
     <style name="ImageButtonAppButtonTheme" parent="android:Widget.ImageButton">
         <item name="android:background">@drawable/appbuttontheme_btn_default_holo_light</item>
     </style>
+    <!--<style name="AlertDialogTheme" parent="android:Theme.Dialog">
+        <item name="android:dialogTitle">@color/colorPrimary</item>
+    </style>-->
 </resources>

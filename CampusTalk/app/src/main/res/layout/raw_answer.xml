@@ -2,25 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
-    android:background="@android:drawable/dialog_holo_light_frame">
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:padding="5dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Answered on"
             android:id="@+id/text_asked"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="5dp"
             android:textColor="#BDBDBD"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fri, 15 Nov 2015"
-            android:layout_marginLeft="8dp"
+            android:id="@+id/tv_answer_date"
+            android:layout_marginLeft="5dp"
             android:textColor="#BDBDBD"
 
             />
@@ -36,37 +37,43 @@
         android:text="You can either take placement in a prestigious company or you can persue higher studies.If you want to do MS in USA then you must start preparing for GRE and if you want to persue master in India then you must start preparing for GATE"
         android:textSize="16dp"
         android:textColor="#000000"
-        android:id="@+id/question_1"
-        android:padding="5dp"
+        android:id="@+id/tv_answer"
+        android:padding="8dp"
         />
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/answer_user"
-        android:drawableTint="#BDBDBD"
-        android:padding="5dp"
-        android:text="  Khushali Shah"
-        android:gravity="center_vertical"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableTint="#BDBDBD"
-        android:paddingLeft="5dp"
-        android:text="Department : Computer"
-        android:gravity="center_vertical"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableTint="#BDBDBD"
-        android:paddingLeft="5dp"
-        android:text="Semester : 2"
-        android:gravity="center_vertical"
-        />
+        android:padding="8dp"
+        android:layout_marginBottom="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/answer_user"
+            android:drawableTint="#BDBDBD"
+            android:padding="2dp"
+            android:text=" Pooja Patel \u002C"
+            android:gravity="center_vertical"
+            android:textColor="#BDBDBD"
+            android:id="@+id/tv_name"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Semeseter \u002C"
+            android:textColor="#BDBDBD"
+            android:id="@+id/tv_semester"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Department"
+            android:textColor="#BDBDBD"
+            android:id="@+id/tv_department"
+            />
+    </LinearLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="10dp"
         android:background="#BDBDBD"
         android:layout_marginTop="8dp"
          />

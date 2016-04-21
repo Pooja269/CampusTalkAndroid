@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="8dp"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:background="@android:drawable/dialog_holo_light_frame"
     >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:padding="8dp"
+        >
  <TextView
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
      android:text="Asked on"
-     android:id="@+id/text_asked"
      android:layout_marginLeft="8dp"
      android:textColor="#BDBDBD"
      />
@@ -22,7 +23,7 @@
      android:text="Date"
      android:layout_marginLeft="8dp"
      android:textColor="#BDBDBD"
-
+     android:id="@+id/tv_question_date"
      />
     </LinearLayout>
     <View
@@ -37,18 +38,39 @@
         android:textSize="20dp"
         android:textColor="#000000"
         android:drawableLeft="@drawable/qletter"
-        android:id="@+id/question_1"
+        android:id="@+id/tv_question"
         android:padding="5dp"
         />
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="45dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:drawableLeft="@drawable/answer_user"
-        android:layout_marginLeft="50dp"
         android:drawableTint="#BDBDBD"
-        android:padding="5dp"
-        android:text="  Pooja Patel"
+        android:padding="2dp"
+        android:text=" Pooja Patel \u002C"
         android:gravity="center_vertical"
+        android:textColor="#BDBDBD"
+        android:id="@+id/tv_name"
         />
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Semeseter \u002C"
+        android:textColor="#BDBDBD"
+        android:id="@+id/tv_semester"
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Department"
+            android:textColor="#BDBDBD"
+            android:id="@+id/tv_department"
+            />
+    </LinearLayout>
 </LinearLayout>

@@ -18,5 +18,6 @@
      android:layout_height="wrap_content"
      android:text="Post"
      android:gravity="center"
-     android:id="@+id/btn_post"/>
+     android:id="@+id/btn_post"
+     />
 </LinearLayout>
