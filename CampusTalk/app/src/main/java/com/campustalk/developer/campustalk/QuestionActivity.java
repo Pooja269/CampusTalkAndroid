@@ -117,9 +117,7 @@ public class QuestionActivity extends AppCompatActivity implements Callback {
             totalPages = jsonObject.getInt("totalPages");
 
             if (jsonArray.length() == 0) {
-                Fragment fragment = NoDataAvailableFragment.setMessage("No Data Available !", "Ooops ! No Questions available");
-                FragmentManager manager = getSupportFragmentManager();
-                manager.beginTransaction().replace(R.id.frame, fragment, "NO DATA").commit();
+
             } else {
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject questionObject = jsonArray.getJSONObject(i);
