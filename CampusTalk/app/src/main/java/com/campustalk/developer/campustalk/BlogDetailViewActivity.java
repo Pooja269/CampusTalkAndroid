@@ -75,7 +75,7 @@ public class BlogDetailViewActivity extends AppCompatActivity implements Callbac
     @Override
     public void getData(String JSONData) {
         try {
-            String url=getSharedPreferences(getString(R.string.config_settings),MODE_PRIVATE).getString("url","")+"imageServlet";
+            String url=getSharedPreferences(getString(R.string.config_settings),MODE_PRIVATE).getString("url","")+getString(R.string.imageUrl);
             JSONObject jsonObject = new JSONObject(JSONData);
             String id = jsonObject.getString("id");
             String description = jsonObject.getString("desc");
