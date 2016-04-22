@@ -9,9 +9,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.AlertDialog;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,17 +38,20 @@ import java.util.List;
 public class AnswerActivity extends AppCompatActivity implements Callback {
     List<Answer> answerList;
     AnswerAdapter adapter;
-    String queId;
+    String queId,question;
     boolean loaded = false;
     ProgressDialog progressDialog;
     Dialog dialog;
     View view;
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer);
-        System.out.println("Answer activity opened");
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Ask & Learn");
     }
 
     @Override
@@ -56,7 +61,7 @@ public class AnswerActivity extends AppCompatActivity implements Callback {
         Intent intent = getIntent();
         Bundle b=intent.getBundleExtra("bundle");
         queId = b.getString("questionId");
-        String question = b.getString("questionTitle");
+        question = b.getString("questionTitle");
         System.out.println(question);
         String date=b.getString("date");
         String name=b.getString("name");
@@ -67,11 +72,11 @@ public class AnswerActivity extends AppCompatActivity implements Callback {
 
         ((TextView) findViewById(R.id.text_asked)).setText(date);
         ((TextView)findViewById(R.id.question)).setText(question);
-        ((TextView)findViewById(R.id.tv_name)).setText(name);
+        ((TextView)findViewById(R.id.tv_name)).setText(" "+name+"\u002C");
         ((TextView)findViewById(R.id.tv_department)).setText(department);
-        ((TextView)findViewById(R.id.tv_semester)).setText(semester);
+        ((TextView)findViewById(R.id.tv_semester)).setText("sem-"+semester+"\u002C");
         answerList = new ArrayList<>();
-        RecyclerView recyclerView=(RecyclerView)findViewById(R.id.ansRecyclerView);
+        recyclerView=(RecyclerView)findViewById(R.id.ansRecyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getBaseContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         adapter = new AnswerAdapter();
@@ -115,9 +120,11 @@ public class AnswerActivity extends AppCompatActivity implements Callback {
             JSONArray jsonArray=jsonObject.getJSONArray("answers");
             if(jsonArray.length()==0)
             {
-                Fragment fragment=NoDataAvailableFragment.setMessage("No Data Available !","Oops ! No Answers available");
-                android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.frame,fragment,"NO DATA").commit();
+               recyclerView.setVisibility(View.GONE);
+                TextView tv =(TextView)view.findViewById(R.id.tv_noAnswer);
+                tv.setVisibility(View.VISIBLE);
+                tv.setText("Oopse! No answer available");
+
             }
             else
             {
@@ -197,20 +204,27 @@ public class AnswerActivity extends AppCompatActivity implements Callback {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        if (id == R.id.action_answer) {
+            dialog = new Dialog(AnswerActivity.this);
+            dialog.setTitle(question);
+            view = getLayoutInflater().inflate(R.layout.dialog_fragment_answer, null);
+            dialog.setContentView(view);
+            Button btn = (Button) view.findViewById(R.id.btn_submit);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    postAnswer();
+                }
+            });
+            dialog.show();
 
-         dialog = new Dialog(AnswerActivity.this);
-        dialog.setTitle("What should I do after completing my Bachelor's degree?");
-        view=getLayoutInflater().inflate(R.layout.dialog_fragment_answer,null);
-        dialog.setContentView(view);
-        Button btn=(Button) view.findViewById(R.id.btn_submit);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                        postAnswer();
-            }
-        });
-        dialog.show();
 
+        }
+        else if(id == android.R.id.home)
+        {
+            finish();
+
+        }
         return super.onOptionsItemSelected(item);
     }
 

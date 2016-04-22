@@ -30,6 +30,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -67,7 +68,7 @@ public class LoginActivity extends AppCompatActivity implements Callback{
 
         EditText etUsername = (EditText)findViewById(R.id.et_username);
         EditText etPassword = (EditText) findViewById(R.id.et_password);
-
+        CheckBox rememberMe = (CheckBox)findViewById(R.id.chk_rememberme);
         username = etUsername.getText().toString();
         password = etPassword.getText().toString();
 
@@ -80,6 +81,7 @@ public class LoginActivity extends AppCompatActivity implements Callback{
         else {
 
             SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.config_settings), MODE_PRIVATE);
+
             String baseURL = sharedPreferences.getString("url", "");
             HashMap<String, String> parametersMap = new HashMap<>();
             parametersMap.put("username", username);

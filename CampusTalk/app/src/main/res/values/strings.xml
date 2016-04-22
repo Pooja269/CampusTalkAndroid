@@ -46,6 +46,12 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+    <string-array name="categories">
+        <item>Art</item>
+        <item>Literature</item>
+        <item>Photography</item>
+        <item>Technical</item>
+    </string-array>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->

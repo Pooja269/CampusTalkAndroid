@@ -46,41 +46,41 @@ public class EventActivity extends AppCompatActivity implements Callback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_recyclerview);
-
+        System.out.println("Event running");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayHomeAsUpEnabled(true);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+            eventList = new ArrayList<>();
 
-        eventList = new ArrayList<>();
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getBaseContext());
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getBaseContext());
+            recyclerView.setLayoutManager(linearLayoutManager);
 
-        recyclerView.setLayoutManager(linearLayoutManager);
+            adapter = new EventAdapter();
 
-        adapter = new EventAdapter();
+            recyclerView.setAdapter(adapter);
 
-        recyclerView.setAdapter(adapter);
-
-        recyclerView.setOnScrollListener(new InfiniteScrollListener(linearLayoutManager) {
-            @Override
-            public void onLoadMore(int current_page) {
-                if (current_page <= totalPages) {
-                    loadEventData(current_page);
+            recyclerView.setOnScrollListener(new InfiniteScrollListener(linearLayoutManager) {
+                @Override
+                public void onLoadMore(int current_page) {
+                    if (current_page <= totalPages) {
+                        loadEventData(current_page);
+                    }
                 }
+            });
+
+            if (!loaded) {
+
+                loadEventData(1);
+                loaded = true;
             }
-        });
 
-        if (!loaded) {
-
-            loadEventData(1);
-            loaded = true;
-        }
 
 
     }

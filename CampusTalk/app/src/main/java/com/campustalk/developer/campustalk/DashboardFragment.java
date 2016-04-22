@@ -37,7 +37,8 @@ public class DashboardFragment extends Fragment {
         ((LinearLayout) view.findViewById(R.id.ll_blog)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(getActivity(),BlogActivity.class);
+                startActivity(intent);
             }
         });
 
