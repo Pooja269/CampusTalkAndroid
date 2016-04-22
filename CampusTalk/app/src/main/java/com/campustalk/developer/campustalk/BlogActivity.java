@@ -53,60 +53,63 @@ public class BlogActivity extends AppCompatActivity implements Callback {
     protected void onStart() {
         super.onStart();
 
-            blogList = new ArrayList<>();
-            category = (Spinner) findViewById(R.id.sp_blogType);
-            category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    blogList.clear();
-                    switch (position) {
+        blogList = new ArrayList<>();
+        category = (Spinner) findViewById(R.id.sp_blogType);
+        category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                blogList.clear();
+                switch (position) {
 
-                        case 0:
-                            blogCategory = "Art";
-                            loadBlogData(blogCategory, 1);
-                            break;
-                        case 1:
-                            blogCategory = "Literature";
-                            loadBlogData(blogCategory, 1);
-                            break;
-                        case 2:
-                            blogCategory = "Photography";
-                            loadBlogData(blogCategory, 1);
-                            break;
-                        case 3:
-                            blogCategory = "Technical";
-                            loadBlogData(blogCategory, 1);
-                            break;
-                        default:
-                            break;
+                    case 0:
+                        blogCategory = "Art";
+                        loadBlogData(blogCategory, 1);
+                        break;
+                    case 1:
+                        blogCategory = "Literature";
+                        loadBlogData(blogCategory, 1);
+                        break;
+                    case 2:
+                        blogCategory = "Photography";
+                        loadBlogData(blogCategory, 1);
+                        break;
+                    case 3:
+                        blogCategory = "Technical";
+                        loadBlogData(blogCategory, 1);
+                        break;
+                    default:
+                        break;
 
-
-                    }
-                }
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
 
                 }
-            });
+            }
 
-                recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getBaseContext());
-                recyclerView.setLayoutManager(linearLayoutManager);
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
-               blogAdapter = new BlogAdapter();
+            }
+        });
+        if (!loaded){
+            recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getBaseContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
 
-                recyclerView.setAdapter(blogAdapter);
+        blogAdapter = new BlogAdapter();
 
-                recyclerView.setOnScrollListener(new InfiniteScrollListener(linearLayoutManager) {
-                    @Override
-                    public void onLoadMore(int current_page) {
+        recyclerView.setAdapter(blogAdapter);
 
-                        if(current_page<=totalPages){
-                            loadBlogData(blogCategory, current_page);
-                        }
+        recyclerView.setOnScrollListener(new InfiniteScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int current_page) {
 
-                    }
-                });
+                if (current_page <= totalPages) {
+                    loadBlogData(blogCategory, current_page);
+                }
+
+            }
+        });
+        loaded=true;
+    }
 
 
 

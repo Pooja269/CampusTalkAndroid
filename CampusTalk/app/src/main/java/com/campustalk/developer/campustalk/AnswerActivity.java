@@ -18,6 +18,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -208,7 +210,15 @@ public class AnswerActivity extends AppCompatActivity implements Callback {
             dialog = new Dialog(AnswerActivity.this);
             dialog.setTitle(question);
             view = getLayoutInflater().inflate(R.layout.dialog_fragment_answer, null);
+
             dialog.setContentView(view);
+            WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+            Window window = dialog.getWindow();
+            lp.copyFrom(window.getAttributes());
+            //This makes the dialog take up the full width
+            lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+            lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+            window.setAttributes(lp);
             Button btn = (Button) view.findViewById(R.id.btn_submit);
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
