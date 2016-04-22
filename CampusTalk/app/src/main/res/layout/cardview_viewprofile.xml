@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:layout_width="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="150dp"
+            android:id="@+id/iv_profile_image"
+            app:siBorderWidth="5dp"
+            app:siBorderColor="#ffffff"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/profile"/>
+
+        <TextView
+            android:id="@id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Khushali Shah"
+            android:padding="4dp"
+            android:gravity="center_horizontal"
+            android:textColor="#000000"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@id/tv_department"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Computer"
+            android:padding="4dp"
+            android:gravity="center_horizontal"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tv_semester"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sem : 2"
+            android:padding="4dp"
+            android:gravity="center_horizontal"
+            android:textColor="#000000" />
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

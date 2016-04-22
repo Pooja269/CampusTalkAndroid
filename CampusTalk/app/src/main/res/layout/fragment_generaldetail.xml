@@ -15,7 +15,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_marginLeft="4dp"
@@ -82,6 +82,10 @@
                 android:textColor="#000000"
                 android:textSize="16sp"/>
 
+            <ImageView android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/ic_cake"/>
+
         </TableRow>
 
         <TableRow android:padding="4dp">
@@ -102,10 +106,15 @@
             <TextView
                 android:id="@+id/tv_email"
                 android:layout_marginLeft="4dp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
+
+            <ImageView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/sym_action_email"
+                android:tint="@color/colorPrimaryDark"/>
 
         </TableRow>
 
@@ -182,6 +191,11 @@
                 android:textColor="#000000"
                 android:textSize="16sp"/>
 
+            <ImageView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/stat_sys_phone_call"
+                android:tint="@color/colorPrimaryDark"/>
+
         </TableRow>
 
         <TableRow android:padding="4dp">
@@ -206,6 +220,11 @@
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
                 android:textSize="16sp"/>
+
+            <ImageView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/stat_sys_phone_call"
+                android:tint="@color/colorPrimaryDark"/>
 
         </TableRow>
 

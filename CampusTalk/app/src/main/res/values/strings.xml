@@ -73,5 +73,16 @@
 
     <string name="url">/AndroidServices</string>
     <string name="imageUrl">/ImageServlet</string>
+    <string name="downloadDoc">/DownloadServlet</string>
     <string name="config_settings">CONFIG_FILE</string>
+
+    <string-array name="noticeTypes">
+
+        <item>VP</item>
+        <item>NSS</item>
+        <item>NCC</item>
+        <item>Departmental</item>
+        <item>TPO</item>
+
+    </string-array>
 </resources>

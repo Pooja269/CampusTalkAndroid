@@ -57,5 +57,13 @@ public class DashboardFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        view.findViewById(R.id.ll_studentProfiles).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),ViewProfileActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
