@@ -1,6 +1,7 @@
 package com.campustalk.developer.campustalk;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -27,6 +28,7 @@ import com.squareup.picasso.Picasso;
 public class ViewStudentDetailsActivity extends AppCompatActivity{
 
 
+    static Student student;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -36,6 +38,10 @@ public class ViewStudentDetailsActivity extends AppCompatActivity{
         @Override
         protected void onStart() {
             super.onStart();
+
+            Intent intent = getIntent();
+            Bundle bundle = intent.getBundleExtra("bundle");
+            student = bundle.getParcelable("student");
 
             SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
@@ -59,7 +65,7 @@ public class ViewStudentDetailsActivity extends AppCompatActivity{
             SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.config_settings),MODE_PRIVATE);
 
             String url = sharedPreferences.getString("url","") + getString(R.string.imageUrl);
-            url = url + "?imageID=" + sharedPreferences.getString("imagePath","");
+            url = url + "?imageID=" + student.getImagePath();
 
             Picasso.with(getBaseContext()).load(url).error(R.drawable.profile).into(ivProfilePic);
 
@@ -115,22 +121,22 @@ public class ViewStudentDetailsActivity extends AppCompatActivity{
                 System.out.println(getArguments().getInt(ARG_SECTION_NUMBER));
                 if((getArguments().getInt(ARG_SECTION_NUMBER))==1) {
                     rootView = inflater.inflate(R.layout.fragment_generaldetail, container, false);
-                    ((TextView) rootView.findViewById(R.id.tv_name)).setText(sharedPreferences.getString("name",""));
-                    ((TextView) rootView.findViewById(R.id.tv_enrollment)).setText(sharedPreferences.getString("enrollment",""));
-                    ((TextView) rootView.findViewById(R.id.tv_DOB)).setText(sharedPreferences.getString("dob",""));
-                    ((TextView) rootView.findViewById(R.id.tv_dept)).setText(sharedPreferences.getString("department",""));
-                    ((TextView)rootView.findViewById(R.id.tv_alternate_phone)).setText(sharedPreferences.getString("altphone",""));
-                    ((TextView)rootView.findViewById(R.id.tv_email)).setText(sharedPreferences.getString("email",""));
-                    ((TextView)rootView.findViewById(R.id.tv_gender)).setText(sharedPreferences.getString("gender",""));
-                    ((TextView)rootView.findViewById(R.id.tv_passing_year)).setText(sharedPreferences.getString("passingyear",""));
-                    ((TextView)rootView.findViewById(R.id.tv_phone)).setText(sharedPreferences.getString("phone",""));
-                    ((TextView)rootView.findViewById(R.id.tv_sem)).setText(sharedPreferences.getString("semester",""));
+                    ((TextView) rootView.findViewById(R.id.tv_name)).setText(student.getStudname());
+                    ((TextView) rootView.findViewById(R.id.tv_enrollment)).setText(student.getEnrollment());
+                    ((TextView) rootView.findViewById(R.id.tv_DOB)).setText(student.getDob());
+                    ((TextView) rootView.findViewById(R.id.tv_dept)).setText(student.getStuddepartment());
+                    ((TextView)rootView.findViewById(R.id.tv_alternate_phone)).setText(student.getAltPhone());
+                    ((TextView)rootView.findViewById(R.id.tv_email)).setText(student.getEmail());
+                    ((TextView)rootView.findViewById(R.id.tv_gender)).setText(student.getGender());
+                    ((TextView)rootView.findViewById(R.id.tv_passing_year)).setText(student.getPassingYear());
+                    ((TextView)rootView.findViewById(R.id.tv_phone)).setText(student.getPhone());
+                    ((TextView)rootView.findViewById(R.id.tv_sem)).setText(student.getStudsemester());
 
                 }else{
                     rootView = inflater.inflate(R.layout.fragment_educationaldetail,container,false);
-                    ((TextView)rootView.findViewById(R.id.tv_projectdetails)).setText(sharedPreferences.getString("projectDetails",""));
-                    ((TextView)rootView.findViewById(R.id.tv_trainingdetails)).setText(sharedPreferences.getString("trainingDetails",""));
-                    ((TextView)rootView.findViewById(R.id.tv_otherdetails)).setText(sharedPreferences.getString("otherDetails",""));
+                    ((TextView)rootView.findViewById(R.id.tv_projectdetails)).setText(student.getProjectDetails());
+                    ((TextView)rootView.findViewById(R.id.tv_trainingdetails)).setText(student.getTrainingDetails());
+                    ((TextView)rootView.findViewById(R.id.tv_otherdetails)).setText(student.getOtherDetails());
                 }
                 return rootView;
             }

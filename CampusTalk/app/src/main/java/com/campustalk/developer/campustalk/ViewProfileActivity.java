@@ -2,6 +2,7 @@ package com.campustalk.developer.campustalk;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -16,9 +17,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
-import android.widget.EdgeEffect;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -80,7 +79,6 @@ public class ViewProfileActivity extends AppCompatActivity implements Callback{
                 String sem[]={"All Semester","1","2","3","4","5","6","7","8"};
 
                 ArrayAdapter<String> a =new ArrayAdapter<String>(getBaseContext(),android.R.layout.simple_spinner_item, sem);
-                a.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spSem.setAdapter(a);
 
                 final String dept[] = {"All Department",
@@ -103,7 +101,6 @@ public class ViewProfileActivity extends AppCompatActivity implements Callback{
                 Spinner spDept = (Spinner) view.findViewById(R.id.sp_department);
 
                 ArrayAdapter<String> b =new ArrayAdapter<String>(getBaseContext(),android.R.layout.simple_spinner_item, dept);
-                a.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spDept.setAdapter(b);
 
 
@@ -158,7 +155,6 @@ public class ViewProfileActivity extends AppCompatActivity implements Callback{
         if (!loaded){
 
             loadStudentDetails(1);
-            loaded = true;
 
         }
 
@@ -245,13 +241,13 @@ public class ViewProfileActivity extends AppCompatActivity implements Callback{
         }
     }
 
-    class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudnetViewHolder>{
+    class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentViewHolder>{
 
 
         @Override
-        public void onBindViewHolder(StudnetViewHolder holder, int position) {
+        public void onBindViewHolder(StudentViewHolder holder, int position) {
 
-            Student student = studentList.get(position);
+            final Student student = studentList.get(position);
 
             holder.tvName.setText(student.getStudname());
             holder.tvSemester.setText(student.getStudsemester());
@@ -262,12 +258,23 @@ public class ViewProfileActivity extends AppCompatActivity implements Callback{
 
             Picasso.with(getBaseContext()).load(url).error(R.drawable.profile).into(holder.ivProifleImage);
 
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(ViewProfileActivity.this,ViewStudentDetailsActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("student",student);
+                    intent.putExtra("bundle", bundle);
+                    startActivity(intent);
+                }
+            });
+
         }
 
         @Override
-        public StudnetViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public StudentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = getLayoutInflater().inflate(R.layout.cardview_viewprofile,parent,false);
-            StudnetViewHolder viewHolder = new StudnetViewHolder(view);
+            StudentViewHolder viewHolder = new StudentViewHolder(view);
             return viewHolder;
         }
 
@@ -276,12 +283,12 @@ public class ViewProfileActivity extends AppCompatActivity implements Callback{
             return studentList.size();
         }
 
-        class StudnetViewHolder extends RecyclerView.ViewHolder{
+        class StudentViewHolder extends RecyclerView.ViewHolder{
 
             CircularImageView ivProifleImage;
             TextView tvName , tvDepartment , tvSemester;
 
-            StudnetViewHolder(View itemView){
+            StudentViewHolder(View itemView){
 
                 super(itemView);
 

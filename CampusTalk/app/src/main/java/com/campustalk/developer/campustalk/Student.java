@@ -1,9 +1,12 @@
 package com.campustalk.developer.campustalk;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by khushali on 22/04/2016.
  */
-public class Student {
+public class Student implements Parcelable{
 
     String studname;
     String gender;
@@ -152,4 +155,56 @@ public class Student {
     public void setStudsemester(String studsemester) {
         this.studsemester = studsemester;
     }
+
+    public int describeContents() {
+        return 0;
+    }
+
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeString(studname);
+        out.writeString(studdepartment);
+        out.writeString(studsemester);
+        out.writeString(enrollment);
+        out.writeString(gender);
+        out.writeString(dob);
+        out.writeString(imagePath);
+        out.writeString(otherDetails);
+        out.writeString(projectDetails);
+        out.writeString(trainingDetails);
+        out.writeString(phone);
+        out.writeString(altPhone);
+        out.writeString(passingYear);
+        out.writeString(email);
+
+    }
+
+    public static final Parcelable.Creator<Student> CREATOR
+            = new Parcelable.Creator<Student>() {
+        public Student createFromParcel(Parcel in) {
+            return new Student(in);
+        }
+
+        public Student[] newArray(int size) {
+            return new Student[size];
+        }
+    };
+
+    private Student(Parcel in) {
+
+        studname = in.readString();
+        studdepartment = in.readString();
+        studsemester = in.readString();
+        enrollment = in.readString();
+        gender = in.readString();
+        dob = in.readString();
+        imagePath = in.readString();
+        otherDetails = in.readString();
+        projectDetails = in.readString();
+        trainingDetails = in.readString();
+        phone = in.readString();
+        altPhone = in.readString();
+        passingYear = in.readString();
+        email = in.readString();
+    }
+
 }
