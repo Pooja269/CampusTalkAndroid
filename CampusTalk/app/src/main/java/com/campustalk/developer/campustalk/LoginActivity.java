@@ -155,6 +155,8 @@ public class LoginActivity extends AppCompatActivity implements Callback{
                 //open navigation drawer activity
                 Intent intent = new Intent(LoginActivity.this, NavigationActivity.class);
                 startActivity(intent);
+                this.finish();
+                System.out.println("finished");
             }else{
 
                 ((EditText) findViewById(R.id.et_password)).setError("Enter valid Credentials");

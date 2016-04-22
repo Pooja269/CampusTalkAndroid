@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/categories"
-        android:padding="10dp"
-        android:layout_marginLeft="5dp"
-        android:id="@+id/sp_blog_category"></Spinner>
-<android.support.v7.widget.CardView
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
@@ -31,7 +20,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -41,7 +31,7 @@
                 android:layout_marginLeft="10dp"
                 android:drawableLeft="@drawable/answer_user"
                 android:id="@+id/tv_blogname"
-                android:textSize="20dp"/>
+                android:textSize="15dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,14 +45,17 @@
                 android:layout_gravity="right"
                 android:gravity="right"
                 android:text="23-03-2016"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:id="@+id/tv_blogdate"
                 />
+
             </LinearLayout>
 
         </LinearLayout>
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#BDBDBD"/>
     </LinearLayout>
 
 </android.support.v7.widget.CardView>
-</LinearLayout>

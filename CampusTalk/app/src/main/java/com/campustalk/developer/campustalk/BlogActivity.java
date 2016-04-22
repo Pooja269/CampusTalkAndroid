@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -36,11 +37,13 @@ public class BlogActivity extends AppCompatActivity implements Callback {
     List<Blog> blogList;
     ProgressDialog progressDialog;
     Spinner category;
+    String blogCategory;
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.layout_recyclerview);
+            setContentView(R.layout.activity_blog);
             System.out.println("blogsssss");
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -49,40 +52,63 @@ public class BlogActivity extends AppCompatActivity implements Callback {
     @Override
     protected void onStart() {
         super.onStart();
-        try {
+
             blogList = new ArrayList<>();
-            category = (Spinner)findViewById(R.id.sp_blog_category);
+            category = (Spinner) findViewById(R.id.sp_blogType);
+            category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    blogList.clear();
+                    switch (position) {
 
-            RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getBaseContext());
-            recyclerView.setLayoutManager(linearLayoutManager);
-            blogAdapter = new BlogAdapter();
-            recyclerView.setAdapter(blogAdapter);
+                        case 0:
+                            blogCategory = "Art";
+                            loadBlogData(blogCategory, 1);
+                            break;
+                        case 1:
+                            blogCategory = "Literature";
+                            loadBlogData(blogCategory, 1);
+                            break;
+                        case 2:
+                            blogCategory = "Photography";
+                            loadBlogData(blogCategory, 1);
+                            break;
+                        case 3:
+                            blogCategory = "Technical";
+                            loadBlogData(blogCategory, 1);
+                            break;
+                        default:
+                            break;
 
-        recyclerView.setOnScrollListener(new InfiniteScrollListener(linearLayoutManager) {
-            @Override
-            public void onLoadMore(int current_page) {
-                if (current_page <= totalPages) {
-                    loadBlogData(category.toString(),current_page);
+
+                    }
                 }
-            }
-        });
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
 
-        if(!loaded){
+                }
+            });
 
-            loadBlogData("Art",1);
-        }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            System.out.println(e);
-        }
-        category.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadBlogData(category.toString(),1);
-            }
-        });
+                recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getBaseContext());
+                recyclerView.setLayoutManager(linearLayoutManager);
+
+               blogAdapter = new BlogAdapter();
+
+                recyclerView.setAdapter(blogAdapter);
+
+                recyclerView.setOnScrollListener(new InfiniteScrollListener(linearLayoutManager) {
+                    @Override
+                    public void onLoadMore(int current_page) {
+
+                        if(current_page<=totalPages){
+                            loadBlogData(blogCategory, current_page);
+                        }
+
+                    }
+                });
+
+
 
     }
 
@@ -99,7 +125,7 @@ public class BlogActivity extends AppCompatActivity implements Callback {
             parametersMap.put("username",username);
             parametersMap.put("password",password);
             parametersMap.put("operation", "blog");
-            parametersMap.put("category","Art");
+            parametersMap.put("category",category);
             parametersMap.put("pageNo", String.valueOf(pageNo));
 
         progressDialog = new ProgressDialog(BlogActivity.this);
@@ -119,14 +145,14 @@ public class BlogActivity extends AppCompatActivity implements Callback {
             totalPages = jsonObject.getInt("totalPages");
 
             if (jsonArray.length() == 0) {
-
+                recyclerView.setVisibility(View.GONE);
                 Fragment fragment = NoDataAvailableFragment.setMessage("No Data Available !", "Ooops ! No Blogs available");
                 FragmentManager manager = getSupportFragmentManager();
                 manager.beginTransaction().replace(R.id.frame, fragment, "NO DATA").commit();
 
             }
             else {
-
+                recyclerView.setVisibility(View.VISIBLE);
                 for (int i=0;i<jsonArray.length();i++) {
 
                     JSONObject blogObject = jsonArray.getJSONObject(i);
@@ -148,8 +174,10 @@ public class BlogActivity extends AppCompatActivity implements Callback {
                     Blog blog = new Blog(id, name, date, enrollment, title, category, imagePath);
 
                     blogList.add(blog);
-                    blogAdapter.notifyDataSetChanged();
+
                 }
+                System.out.println("blog size :"+ blogList.size());
+                blogAdapter.notifyDataSetChanged();
 
             }
         }catch (Exception e){
@@ -173,10 +201,12 @@ public class BlogActivity extends AppCompatActivity implements Callback {
         @Override
         public void onBindViewHolder(BlogViewHolder holder, int position) {
             final Blog blog = blogList.get(position);
+            System.out.println("position"+position);
 
             holder.tvBlogTitle.setText(blog.getBlogTitle());
             holder.tvBlogName.setText(" "+blog.getBlogname());
             holder.tvBlogDate.setText(blog.getBlogDate());
+
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -193,12 +223,13 @@ public class BlogActivity extends AppCompatActivity implements Callback {
                     startActivity(intent);
                 }
             });
-
         }
 
-        public  int getItemCount(){return blogList.size();}
+        public  int getItemCount(){
+            System.out.println("Blog size"+blogList.size());
+            return blogList.size();}
 
-        class BlogViewHolder extends RecyclerView.ViewHolder{
+        class BlogViewHolder extends RecyclerView.ViewHolder {
 
             TextView tvBlogTitle, tvBlogName, tvBlogDate;
 

@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/iv_blog_img"
-            android:padding="8dp"
+            android:paddingBottom="8dp"
             android:src="@drawable/spandanevent"
             android:adjustViewBounds="true"/>
         <TextView
