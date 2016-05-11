@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -39,6 +40,7 @@ public class BlogActivity extends AppCompatActivity implements Callback {
     Spinner category;
     String blogCategory;
     RecyclerView recyclerView;
+    FrameLayout frameLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -148,6 +150,7 @@ public class BlogActivity extends AppCompatActivity implements Callback {
             totalPages = jsonObject.getInt("totalPages");
 
             if (jsonArray.length() == 0) {
+
                 recyclerView.setVisibility(View.GONE);
                 Fragment fragment = NoDataAvailableFragment.setMessage("No Data Available !", "Ooops ! No Blogs available");
                 FragmentManager manager = getSupportFragmentManager();
@@ -155,6 +158,7 @@ public class BlogActivity extends AppCompatActivity implements Callback {
 
             }
             else {
+
                 recyclerView.setVisibility(View.VISIBLE);
                 for (int i=0;i<jsonArray.length();i++) {
 

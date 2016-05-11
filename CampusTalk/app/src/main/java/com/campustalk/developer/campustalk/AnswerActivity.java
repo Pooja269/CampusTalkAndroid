@@ -85,11 +85,11 @@ public class AnswerActivity extends AppCompatActivity implements Callback {
         recyclerView.setAdapter(adapter);
         if(!loaded)
         {
-            loadAnswerData();
+            loadAnswerData(queId);
         }
     }
 
-    private void loadAnswerData() {
+    private void loadAnswerData(String queId) {
         SharedPreferences sharedPreferences= getSharedPreferences(getString(R.string.config_settings), MODE_PRIVATE);
         String url = sharedPreferences.getString("url", "");
         String userName = sharedPreferences.getString("username","");
@@ -272,8 +272,8 @@ public class AnswerActivity extends AppCompatActivity implements Callback {
                             if (jsonObject.getString("login").equals("Success")) {
                                 dialog.dismiss();
                                 Toast.makeText(getBaseContext(), "Answer submitted successsfully", Toast.LENGTH_SHORT).show();
-                                loadAnswerData();
-                                ((EditText)view.findViewById(R.id.et_question)).setText("");
+                                loadAnswerData(queId);
+
                             } else
                                 Toast.makeText(getBaseContext(), "Answer submission failed.Try again later..", Toast.LENGTH_SHORT).show();
                         }

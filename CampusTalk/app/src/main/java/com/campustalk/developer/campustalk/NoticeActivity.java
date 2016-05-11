@@ -1,5 +1,6 @@
 package com.campustalk.developer.campustalk;
 
+import android.animation.ObjectAnimator;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -18,6 +19,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -257,7 +259,7 @@ public class NoticeActivity extends AppCompatActivity implements Callback{
 
 
         @Override
-        public void onBindViewHolder(NoticeViewHolder holder, int position) {
+        public void onBindViewHolder(final NoticeViewHolder holder, int position) {
 
             final Notice notice = notices.get(position);
             holder.tvTitle.setText(notice.getTitle());
@@ -265,9 +267,20 @@ public class NoticeActivity extends AppCompatActivity implements Callback{
             holder.tvDate.setText(notice.getDate());
 
             holder.tvMore.setOnClickListener(new View.OnClickListener() {
+                boolean isExpanded = false;
                 @Override
                 public void onClick(View v) {
 
+
+                    if (isExpanded) {
+                        collapseTextView(holder.tvDescription,3);
+                        isExpanded = false;
+                        holder.tvMore.setText("more...");
+                    }else {
+                        expandTextView(holder.tvDescription);
+                        isExpanded = true;
+                        holder.tvMore.setText("less...");
+                    }
                 }
             });
 
@@ -322,6 +335,32 @@ public class NoticeActivity extends AppCompatActivity implements Callback{
 
 
         }
+    }
+
+    private void expandTextView(final TextView tv) {
+        tv.setEllipsize(null);
+        tv.post(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("LINES", tv.getLineCount() + "");
+                ObjectAnimator animation = ObjectAnimator.ofInt(tv, "maxLines", tv.getLineCount());
+                animation.setDuration(200).start();
+            }
+        });
+    }
+
+    /**
+     * This method is used to shrink the given textview to given numLines lines and ellipsis
+     *
+     * @param tv
+     * @param numLines
+     */
+    private void collapseTextView(TextView tv, int numLines) {
+        tv.setEllipsize(TextUtils.TruncateAt.END);
+        Log.d("LINES", numLines + "");
+        ObjectAnimator animation = ObjectAnimator.ofInt(tv, "maxLines", numLines);
+        animation.setDuration(200).start();
+
     }
 
 }
