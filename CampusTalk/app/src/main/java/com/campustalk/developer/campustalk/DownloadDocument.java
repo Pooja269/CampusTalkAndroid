@@ -18,15 +18,16 @@ import java.net.URLConnection;
  */
 public class DownloadDocument {
 
-    public static void downloadDoc(final Context context,final String url){
+    public static void downloadDoc(final Context context,final String url,final String filename){
 
-
+        String filePath[] = filename.split("\\\\");
+        final String fileTitle = filePath[filePath.length-1];
+        System.out.println("file name :"+fileTitle);
 
         new AsyncTask<Void,Void,Void>() {
 
             DownloadManager downloadManager;
             DownloadManager.Request request;
-            String filename;
             Uri uri;
 
             @Override
@@ -52,9 +53,6 @@ public class DownloadDocument {
                     conn.connect();
                     conn.setInstanceFollowRedirects(false);
 
-                    String filePath[] = url.split("\\\\");
-                    filename = filePath[filePath.length-1];
-                    System.out.println("file name :"+filename);
                 }
 
                 catch(Exception e)
@@ -71,15 +69,15 @@ public class DownloadDocument {
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
                 request.setDescription("CampusTalk Documents");
-                request.setTitle(filename);
-                request.setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, filename);
+                request.setTitle(fileTitle);
+                request.setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, fileTitle);
                 request.setVisibleInDownloadsUi(true);
                 request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
                 request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 
 
                 FileNameMap fileNameMap = URLConnection.getFileNameMap();
-                String mimeType = fileNameMap.getContentTypeFor(filename);
+                String mimeType = fileNameMap.getContentTypeFor(fileTitle);
                 /*ContentResolver cR = context.getContentResolver();
                 MimeTypeMap mime = MimeTypeMap.getSingleton();
                 String type = cR.getType(uri);*/

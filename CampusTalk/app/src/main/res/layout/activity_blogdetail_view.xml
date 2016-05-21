@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Blog Title"
+        tools:text="Blog Title"
         android:id="@+id/tv_blog_Title"
         android:padding="10dp"
         android:gravity="left"
@@ -24,12 +25,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/iv_blog_img"
             android:paddingBottom="8dp"
-            android:src="@drawable/spandanevent"
+            tools:src="@drawable/spandanevent"
             android:adjustViewBounds="true"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description"
+            tools:text="Description"
             android:padding="8dp"
             android:id="@+id/tv_blog_desc"/>
             <TextView
@@ -38,7 +39,7 @@
                 android:drawableLeft="@drawable/answer_user"
                 android:drawableTint="#BDBDBD"
                 android:padding="8dp"
-                android:text=" Pooja Patel"
+                tools:text=" Pooja Patel"
                 android:gravity="center_vertical"
                 android:textColor="#BDBDBD"
                 android:id="@+id/tv_name"
@@ -52,7 +53,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Date"
+                tools:text="Date"
                 android:textColor="#BDBDBD"
                 android:id="@+id/tv_date"
                 />

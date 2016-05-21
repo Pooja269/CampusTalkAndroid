@@ -1,9 +1,17 @@
 package com.campustalk.developer.campustalk;
 
+import android.Manifest;
 import android.animation.ObjectAnimator;
+import android.annotation.TargetApi;
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
@@ -11,19 +19,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -46,7 +58,7 @@ public class EventActivity extends AppCompatActivity implements Callback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_recyclerview);
-        System.out.println("Event running");
+        eventList = new ArrayList<>();
     }
 
     @Override
@@ -54,8 +66,6 @@ public class EventActivity extends AppCompatActivity implements Callback {
         super.onStart();
             ActionBar actionBar = getSupportActionBar();
             actionBar.setDisplayHomeAsUpEnabled(true);
-
-            eventList = new ArrayList<>();
 
             RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getBaseContext());
@@ -196,7 +206,7 @@ public class EventActivity extends AppCompatActivity implements Callback {
         @Override
         public void onBindViewHolder(final EventViewHolder holder, int position) {
 
-            Event event = eventList.get(position);
+            final Event event = eventList.get(position);
 
             holder.tvEventTime.setText(event.getEventTime());
             holder.tvEventName.setText(event.getEventTitle());
@@ -209,19 +219,55 @@ public class EventActivity extends AppCompatActivity implements Callback {
                     .load(url+"?imageID="+event.getEventImage())
                     .into(holder.ivEventImage);
 
-            Log.d("imageUrl",url+"?imageID="+event.getEventImage());
+            Log.d("imageUrl", url + "?imageID=" + event.getEventImage());
+
+           /* holder.ibAddEvent.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ContentResolver resolver = getContentResolver();
+                    ContentValues values = new ContentValues();
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                    Date sdate=null,edate=null;
+                    try {
+                        sdate = sdf.parse(event.getEventStartDate());
+                        edate = sdf.parse(event.getEventEndDate());
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
+                    values.put(CalendarContract.Events.CALENDAR_ID, 1);
+                    values.put(CalendarContract.Events.EVENT_TIMEZONE, Time.getCurrentTimezone());
+                    values.put(CalendarContract.EXTRA_EVENT_BEGIN_TIME, event.getEventTime());
+                    values.put(CalendarContract.Events.DESCRIPTION, event.getEventDescription());
+                    values.put(CalendarContract.Events.TITLE, event.getEventTitle());
+                    values.put(CalendarContract.Events.DTSTART, sdate.getTime());
+                    values.put(CalendarContract.Events.DTEND, edate.getTime());
+
+                    String permission = Manifest.permission.WRITE_CALENDAR;
+
+                    if (checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED) {
+                        Uri uri = resolver.insert(CalendarContract.Events.CONTENT_URI, values);
+                    } else {
+                        Toast.makeText(getBaseContext(), "You must give permission to access your calendar", Toast.LENGTH_SHORT).show();
+                        requestPermissions(new String[]{Manifest.permission.WRITE_CALENDAR}, 200);
+                    }
+
+                }
+            });*/
 
             holder.tvMore.setOnClickListener(new View.OnClickListener() {
                 boolean isExpanded = false;
+
                 @Override
                 public void onClick(View v) {
 
 
                     if (isExpanded) {
-                        collapseTextView(holder.tvEventDesc,3);
+                        collapseTextView(holder.tvEventDesc, 3);
                         isExpanded = false;
                         holder.tvMore.setText("more...");
-                    }else {
+                    } else {
                         expandTextView(holder.tvEventDesc);
                         isExpanded = true;
                         holder.tvMore.setText("less...");
@@ -240,6 +286,7 @@ public class EventActivity extends AppCompatActivity implements Callback {
 
             TextView tvEventName, tvEventDate, tvEventTime, tvEventDesc, tvMore;
             ImageView ivEventImage;
+            ImageButton ibAddEvent;
 
             EventViewHolder(View itemView) {
                 super(itemView);
@@ -251,12 +298,27 @@ public class EventActivity extends AppCompatActivity implements Callback {
                 tvMore = (TextView) itemView.findViewById(R.id.tvMore);
 
                 ivEventImage = (ImageView) itemView.findViewById(R.id.ivEvent_image);
+                ibAddEvent = (ImageButton) itemView.findViewById(R.id.ib_add_calendar_event);
             }
 
         }
 
 
     }
+
+    /*@Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+
+        if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+    Toast.makeText(getBaseContext(),"Permission Granted ! Now click add button again to add event to your calendar",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getBaseContext(),"You must give permission to access your calendar",Toast.LENGTH_SHORT).show();
+            }
+
+
+
+    }*/
 
     /**
      * This method is used to expand the given tv to its full capacity

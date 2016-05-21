@@ -120,16 +120,17 @@ public class AnswerActivity extends AppCompatActivity implements Callback {
         try{
             JSONObject jsonObject = new JSONObject(JSONData);
             JSONArray jsonArray=jsonObject.getJSONArray("answers");
+            TextView tv =(TextView)findViewById(R.id.tv_noAnswer);
             if(jsonArray.length()==0)
             {
                recyclerView.setVisibility(View.GONE);
-                TextView tv =(TextView)view.findViewById(R.id.tv_noAnswer);
                 tv.setVisibility(View.VISIBLE);
-                tv.setText("Oopse! No answer available");
 
             }
             else
             {
+                recyclerView.setVisibility(View.VISIBLE);
+                tv.setVisibility(View.GONE);
                 for(int i=0;i<jsonArray.length();i++)
                 {
                     JSONObject answerObject = jsonArray.getJSONObject(i);
@@ -147,9 +148,11 @@ public class AnswerActivity extends AppCompatActivity implements Callback {
                     System.out.println(date);
                     Answer answerObj=new Answer(id,answer,semester,department,name,date);
                     answerList.add(answerObj);
-                    adapter.notifyDataSetChanged();
+                    System.out.println("Answer object added "+i);
                 }
+                adapter.notifyDataSetChanged();
             }
+            loaded = true;
         }
         catch (Exception e)
         {
@@ -269,9 +272,10 @@ public class AnswerActivity extends AppCompatActivity implements Callback {
                     public void getData(String JSONData) {
                         try {
                             JSONObject jsonObject = new JSONObject(JSONData);
-                            if (jsonObject.getString("login").equals("Success")) {
+                            if (jsonObject.getString("login").equalsIgnoreCase("Success")) {
                                 dialog.dismiss();
                                 Toast.makeText(getBaseContext(), "Answer submitted successsfully", Toast.LENGTH_SHORT).show();
+                                answerList.clear();
                                 loadAnswerData(queId);
 
                             } else

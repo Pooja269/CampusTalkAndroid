@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
+import java.net.URLEncoder;
 import java.util.HashMap;
 
 /**
@@ -166,7 +167,9 @@ public class DocumentsDownloadFragment extends Fragment implements Callback{
             documentsMap.put(16,uniqueId);
             documentsMap.put(17,other);
 
-        }catch (Exception e){}
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         finally {
             progressDialog.dismiss();
         }
@@ -180,12 +183,12 @@ public class DocumentsDownloadFragment extends Fragment implements Callback{
                 String path = documentsMap.get(i);
                 String url = getActivity().getSharedPreferences(getString(R.string.config_settings),Context.MODE_PRIVATE).getString("url","") + getString(R.string.downloadDoc);
 
-                url = url + "?filePath="+path;
-
                 if(path.equals("")){
                     Toast.makeText(getActivity(),"File Not Available!",Toast.LENGTH_SHORT).show();
                 }else {
-                    DownloadDocument.downloadDoc(getActivity(),url);
+                    url = url + "?filePath="+ URLEncoder.encode(path);
+
+                    DownloadDocument.downloadDoc(getActivity(),url,path);
                 }
             }
         });

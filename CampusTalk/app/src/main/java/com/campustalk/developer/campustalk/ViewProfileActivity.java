@@ -78,7 +78,7 @@ public class ViewProfileActivity extends AppCompatActivity implements Callback{
                 Spinner spSem = ((Spinner) view.findViewById(R.id.sp_semester));
                 String sem[]={"All Semester","1","2","3","4","5","6","7","8"};
 
-                ArrayAdapter<String> a =new ArrayAdapter<String>(getBaseContext(),android.R.layout.simple_spinner_item, sem);
+                ArrayAdapter<String> a =new ArrayAdapter<String>(getBaseContext(),android.R.layout.simple_spinner_dropdown_item, sem);
                 spSem.setAdapter(a);
 
                 final String dept[] = {"All Department",
@@ -100,7 +100,7 @@ public class ViewProfileActivity extends AppCompatActivity implements Callback{
 
                 Spinner spDept = (Spinner) view.findViewById(R.id.sp_department);
 
-                ArrayAdapter<String> b =new ArrayAdapter<String>(getBaseContext(),android.R.layout.simple_spinner_item, dept);
+                ArrayAdapter<String> b =new ArrayAdapter<String>(getBaseContext(),android.R.layout.simple_spinner_dropdown_item, dept);
                 spDept.setAdapter(b);
 
 
@@ -208,32 +208,42 @@ public class ViewProfileActivity extends AppCompatActivity implements Callback{
             totalPages = jsonObject.getInt("totalPages");
 
             JSONArray jsonArray = jsonObject.getJSONArray("students");
+            TextView tvNoData = (TextView) findViewById(R.id.tv_no_data_found);
 
-            for (int i=0;i<jsonArray.length();i++){
-
-                JSONObject studentDetails = jsonArray.getJSONObject(i);
-
-                String otherDetails = studentDetails.getString("otherDetails");
-                String phone = studentDetails.getString("phone");
-                String imagePath = studentDetails.getString("imagePath");
-                String trainingDetails = studentDetails.getString("trainingDetails");
-                String studDepartment = studentDetails.getString("department");
-                String studSemester = studentDetails.getString("semester");
-                String passingyear = studentDetails.getString("passingyear");
-                String altphone = studentDetails.getString("altphone");
-                String projectDetails = studentDetails.getString("projectDetails");
-                String email = studentDetails.getString("email");
-                String dob = studentDetails.getString("dob");
-                String studName = studentDetails.getString("name");
-                String gender = studentDetails.getString("gender");
-                String enrollment = studentDetails.getString("enrollment");
-
-                Student student = new Student(studName,gender,dob,imagePath,enrollment,passingyear,phone,altphone,email,projectDetails,trainingDetails,otherDetails,studDepartment,studSemester);
-
-                studentList.add(student);
-
+            if(jsonArray.length() == 0){
+                recyclerView.setVisibility(View.GONE);
+                tvNoData.setVisibility(View.VISIBLE);
             }
-            adapter.notifyDataSetChanged();
+
+            else {
+                recyclerView.setVisibility(View.VISIBLE);
+                tvNoData.setVisibility(View.GONE);
+                for (int i = 0; i < jsonArray.length(); i++) {
+
+                    JSONObject studentDetails = jsonArray.getJSONObject(i);
+
+                    String otherDetails = studentDetails.getString("otherDetails");
+                    String phone = studentDetails.getString("phone");
+                    String imagePath = studentDetails.getString("imagePath");
+                    String trainingDetails = studentDetails.getString("trainingDetails");
+                    String studDepartment = studentDetails.getString("department");
+                    String studSemester = studentDetails.getString("semester");
+                    String passingyear = studentDetails.getString("passingyear");
+                    String altphone = studentDetails.getString("altphone");
+                    String projectDetails = studentDetails.getString("projectDetails");
+                    String email = studentDetails.getString("email");
+                    String dob = studentDetails.getString("dob");
+                    String studName = studentDetails.getString("name");
+                    String gender = studentDetails.getString("gender");
+                    String enrollment = studentDetails.getString("enrollment");
+
+                    Student student = new Student(studName, gender, dob, imagePath, enrollment, passingyear, phone, altphone, email, projectDetails, trainingDetails, otherDetails, studDepartment, studSemester);
+
+                    studentList.add(student);
+
+                }
+                adapter.notifyDataSetChanged();
+            }
 
         }catch (Exception e){}
         finally {

@@ -60,6 +60,23 @@ public class QuestionActivity extends AppCompatActivity implements Callback {
                 questionDialog();
             }
         });
+
+        questionList = new ArrayList<>();
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.queRecyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getBaseContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        adapter = new QuestionAdapter();
+        recyclerView.setAdapter(adapter);
+        recyclerView.setOnScrollListener(new InfiniteScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int current_page) {
+                if (current_page <= totalPages) {
+                    loadQuestionData(current_page);
+                }
+            }
+        });
+
+
     }
 
     @Override
@@ -68,20 +85,6 @@ public class QuestionActivity extends AppCompatActivity implements Callback {
 
         {
             super.onStart();
-            questionList = new ArrayList<>();
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.queRecyclerView);
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getBaseContext());
-            recyclerView.setLayoutManager(linearLayoutManager);
-            adapter = new QuestionAdapter();
-            recyclerView.setAdapter(adapter);
-            recyclerView.setOnScrollListener(new InfiniteScrollListener(linearLayoutManager) {
-                @Override
-                public void onLoadMore(int current_page) {
-                    if (current_page <= totalPages) {
-                        loadQuestionData(current_page);
-                    }
-                }
-            });
             if (!loaded) {
                 loadQuestionData(1);
             }
@@ -141,6 +144,7 @@ public class QuestionActivity extends AppCompatActivity implements Callback {
                 }
 
             }
+            loaded = true;
 
 
         } catch (Exception e) {
@@ -265,6 +269,7 @@ public class QuestionActivity extends AppCompatActivity implements Callback {
                         if (jsonObject.getString("login").equals("Success")) {
                             dialog.dismiss();
                             Toast.makeText(getBaseContext(), "Question posted successsfully", Toast.LENGTH_SHORT).show();
+                            questionList.clear();
                             loadQuestionData(1);
                             ((EditText)view.findViewById(R.id.et_question)).setText("");
                         } else

@@ -58,6 +58,26 @@ public class NoticeActivity extends AppCompatActivity implements Callback{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice);
 
+        noticeList = new ArrayList<>();
+
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getBaseContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        adapter = new NoticeAdapter(noticeList);
+
+        recyclerView.setAdapter(adapter);
+
+        recyclerView.setOnScrollListener(new InfiniteScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int current_page) {
+
+                if (current_page <= totalPages) {
+                    loadNotices(noticeType, semester, current_page);
+                }
+
+            }
+        });
 
 
 
@@ -74,7 +94,6 @@ public class NoticeActivity extends AppCompatActivity implements Callback{
         username = sharedPreferences.getString("username","");
         password = sharedPreferences.getString("password","");
 
-        noticeList = new ArrayList<>();
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -87,34 +106,34 @@ public class NoticeActivity extends AppCompatActivity implements Callback{
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 noticeList.clear();
-                switch (position){
+                switch (position) {
 
                     case 0:
 
-                        noticeType="98521";
-                        semester="";
-                        loadNotices(noticeType,semester,1);
+                        noticeType = "98521";
+                        semester = "";
+                        loadNotices(noticeType, semester, 1);
                         break;
                     case 1:
                         noticeType = "74563";
                         semester = "";
-                        loadNotices(noticeType,semester,1);
+                        loadNotices(noticeType, semester, 1);
                         break;
                     case 2:
-                        noticeType="96541";
-                        semester="";
-                        loadNotices(noticeType,semester,1);
+                        noticeType = "96541";
+                        semester = "";
+                        loadNotices(noticeType, semester, 1);
                         break;
                     case 3:
-                        SharedPreferences sh = getSharedPreferences(getString(R.string.config_settings),MODE_PRIVATE);
-                        noticeType = sh.getString("deptid","");
-                        semester = sh.getString("semester","");
-                        loadNotices(noticeType,semester,1);
+                        SharedPreferences sh = getSharedPreferences(getString(R.string.config_settings), MODE_PRIVATE);
+                        noticeType = sh.getString("deptid", "");
+                        semester = sh.getString("semester", "");
+                        loadNotices(noticeType, semester, 1);
                         break;
                     case 4:
-                        noticeType="69854";
-                        semester="";
-                        loadNotices(noticeType,semester,1);
+                        noticeType = "69854";
+                        semester = "";
+                        loadNotices(noticeType, semester, 1);
                         break;
                     default:
                         break;
@@ -129,24 +148,7 @@ public class NoticeActivity extends AppCompatActivity implements Callback{
             }
         });
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getBaseContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
 
-        adapter = new NoticeAdapter(noticeList);
-
-        recyclerView.setAdapter(adapter);
-
-        recyclerView.setOnScrollListener(new InfiniteScrollListener(linearLayoutManager) {
-            @Override
-            public void onLoadMore(int current_page) {
-
-                if(current_page<=totalPages){
-                    loadNotices(noticeType,semester,current_page);
-                }
-
-            }
-        });
     }
 
     @Override
@@ -298,7 +300,7 @@ public class NoticeActivity extends AppCompatActivity implements Callback{
 
                         downloadUrl = downloadUrl + "?filePath=" + filePath;
 
-                        DownloadDocument.downloadDoc(getBaseContext(),url);
+                        DownloadDocument.downloadDoc(getBaseContext(),url,filePath);
                     }
                 }
             });

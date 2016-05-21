@@ -83,19 +83,21 @@
         android:paddingTop="5dp">
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:id="@+id/ansRecyclerView">
 
         </android.support.v7.widget.RecyclerView>
 
      <TextView
+         android:padding="8dp"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_gravity="center"
-         android:text="Oops! No answer available "
+         android:text="Oops! No answers available "
          android:textColor="#BDBDBD"
          android:id="@+id/tv_noAnswer"
-         android:visibility="gone"/>
+         android:visibility="gone"
+         android:textSize="16dp"/>
     </RelativeLayout>
 </LinearLayout>
